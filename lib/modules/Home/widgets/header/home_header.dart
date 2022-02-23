@@ -41,12 +41,14 @@ class HomeHeader extends StatelessWidget {
                     height: 50,
                     width: 50,
                     child: Container(
-                      decoration: const BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(100),
-                        ),
-                      ),
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(100),
+                          ),
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                  "https://avatarfiles.alphacoders.com/267/thumb-267426.png"))),
                     ),
                   ),
                 ],
