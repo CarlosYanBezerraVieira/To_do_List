@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ItemTask extends StatelessWidget {
-  const ItemTask({Key? key, required this.title}) : super(key: key);
+  const ItemTask({Key? key, required this.title, required this.onPressed})
+      : super(key: key);
   final String title;
+  final Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -70,7 +72,7 @@ class ItemTask extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: onPressed,
                   icon: const Icon(Icons.chevron_right_outlined),
                   color: Colors.black,
                   iconSize: 30,

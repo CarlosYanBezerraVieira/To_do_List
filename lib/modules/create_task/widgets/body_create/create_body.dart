@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:to_do_list/modules/create_task/create_task_controller.dart';
 import 'package:to_do_list/modules/create_task/widgets/header/item_form.dart';
 
-class BodyCreaTask extends StatelessWidget {
+class BodyCreaTask extends GetView<CreateTaskController> {
   const BodyCreaTask({Key? key}) : super(key: key);
 
   @override
@@ -26,19 +27,31 @@ class BodyCreaTask extends StatelessWidget {
         padding: const EdgeInsets.only(top: 30, right: 20, left: 20),
         child: Column(
           children: [
-            ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: 4,
-                itemBuilder: (contex, index) {
-                  return ItemForm(
-                    icons: icons[index],
-                    label: label[index],
-                    title: title[index],
-                  );
-                }),
+            ItemForm(
+              controller: controller.titleController,
+              icons: icons[0],
+              label: label[0],
+              title: title[0],
+            ),
+            ItemForm(
+              icons: icons[1],
+              label: label[1],
+              title: title[1],
+            ),
+            ItemForm(
+              icons: icons[2],
+              label: label[2],
+              title: title[2],
+            ),
+            ItemForm(
+              icons: icons[3],
+              label: label[3],
+              title: title[3],
+            ),
             GestureDetector(
-              onTap: () => Get.back(),
+              onTap: () {
+                Get.back();
+              },
               child: Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),

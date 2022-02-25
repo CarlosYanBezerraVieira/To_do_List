@@ -5,11 +5,16 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ItemForm extends StatelessWidget {
   ItemForm(
-      {Key? key, required this.icons, required this.label, required this.title})
+      {Key? key,
+      required this.icons,
+      required this.label,
+      required this.title,
+      this.controller})
       : super(key: key);
   final String icons;
   final String label;
   final String title;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -40,6 +45,7 @@ class ItemForm extends StatelessWidget {
                     child: SizedBox(
                       width: 250,
                       child: TextFormField(
+                        controller: controller,
                         decoration: InputDecoration(
                             label: Text(label),
                             border: OutlineInputBorder(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:to_do_list/application/application/bindinds/application_bindings.dart';
 import 'package:to_do_list/modules/Home/home_module.dart';
 import 'package:to_do_list/modules/create_task/create_task_module.dart';
 import 'package:to_do_list/modules/splash/splash_module.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      initialBinding: ApplicationBindings(),
       getPages: [
         ...SplashModule().routers,
         ...HomeModule().routers,

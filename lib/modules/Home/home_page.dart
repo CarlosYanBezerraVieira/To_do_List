@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:to_do_list/modules/Home/home_controller.dart';
 import 'package:to_do_list/modules/Home/widgets/body/daily/daily.dart';
 import 'package:to_do_list/modules/Home/widgets/body/float_action_button/float_action_button_widget.dart';
 import 'package:to_do_list/modules/Home/widgets/body/list_taks/list_task.dart';
 import 'package:to_do_list/modules/Home/widgets/header/home_header.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -17,7 +19,11 @@ class HomePage extends StatelessWidget {
           children: [
             HomeHeader(),
             Daily(),
-            ListTask(),
+            ListTask(
+              onPressed: () {
+                print("chamado");
+              },
+            ),
           ],
         ),
       ),
