@@ -34,22 +34,26 @@ class BodyCreaTask extends GetView<CreateTaskController> {
               title: title[0],
             ),
             ItemForm(
+              controller: controller.dataController,
               icons: icons[1],
               label: label[1],
               title: title[1],
             ),
             ItemForm(
+              controller: controller.timeController,
               icons: icons[2],
               label: label[2],
               title: title[2],
             ),
             ItemForm(
+              controller: controller.alarmController,
               icons: icons[3],
               label: label[3],
               title: title[3],
             ),
             GestureDetector(
               onTap: () {
+                controller.doTask();
                 Get.back();
               },
               child: Container(

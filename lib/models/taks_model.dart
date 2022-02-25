@@ -1,18 +1,18 @@
 import 'dart:convert';
 
-class TaksModel {
+class TaskModel {
   final int id;
-  final String title;
-  final String data;
-  final String time;
-  final String alarm;
+  final String? title;
+  final String? data;
+  final String? time;
+  final String? alarm;
   final bool select;
-  TaksModel({
+  TaskModel({
     required this.id,
-    required this.title,
-    required this.data,
-    required this.time,
-    required this.alarm,
+    this.title,
+    this.data,
+    this.time,
+    this.alarm,
     required this.select,
   });
 
@@ -27,8 +27,8 @@ class TaksModel {
     };
   }
 
-  factory TaksModel.fromMap(Map<String, dynamic> map) {
-    return TaksModel(
+  factory TaskModel.fromMap(Map<String, dynamic> map) {
+    return TaskModel(
       id: map['id']?.toInt() ?? 0,
       title: map['title'] ?? '',
       data: map['data'] ?? '',
@@ -40,13 +40,13 @@ class TaksModel {
 
   String toJson() => json.encode(toMap());
 
-  factory TaksModel.fromJson(String source) =>
-      TaksModel.fromMap(json.decode(source));
+  factory TaskModel.fromJson(String source) =>
+      TaskModel.fromMap(json.decode(source));
 
   @override
   String toString() {
     return """ 
-    TaksModel 
+    TaskModel 
     id: $id,
     title: $title,
     data: $data,
