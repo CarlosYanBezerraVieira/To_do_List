@@ -27,7 +27,6 @@ class CreateTaskController extends GetxController {
       select: true,
     );
     saveTask(task);
-    print(task);
   }
 
   void saveTask(TaskModel taskModel) async {
@@ -35,15 +34,19 @@ class CreateTaskController extends GetxController {
     task.setString(PreferencesKey.keytTask, json.encode(taskModel.toJson()));
   }
 
-  Future<void> populateTasks() async {
-    TaskModel? savedTask = await getTask();
-    print(savedTask);
+  Future<TaskModel?> populateTasks() async {
+    try {
+      TaskModel? savedTask = await getTask();
+      return savedTask;
+    } catch (e) {
+      Exception(e);
+      return null;
+    }
   }
 
   Future<TaskModel?> getTask() async {
     SharedPreferences taskSaved = await SharedPreferences.getInstance();
     String? jsonTask = taskSaved.getString(PreferencesKey.keytTask);
-    print(jsonTask);
 
     if (jsonTask != null) {
       Map<String, dynamic> mapTask = jsonDecode(json.decode(jsonTask));

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:to_do_list/models/taks_model.dart';
 import 'package:to_do_list/modules/Home/home_controller.dart';
 import 'package:to_do_list/modules/Home/widgets/body/daily/daily.dart';
 import 'package:to_do_list/modules/Home/widgets/body/float_action_button/float_action_button_widget.dart';
@@ -11,6 +12,7 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    TaskModel? task;
     return Scaffold(
       body: Container(
         color: Colors.white,
@@ -20,8 +22,26 @@ class HomePage extends GetView<HomeController> {
             HomeHeader(),
             Daily(),
             ListTask(
-              onPressed: () {
-                print("chamado");
+              onPressed: () async {
+                task = await controller.getTask();
+                showDialog(
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      content: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(task?.title ?? "nullo"),
+                          Text(task?.alarm ?? "nullo"),
+                          Text(task?.data ?? "nullo"),
+                          Text(task?.time ?? "nullo"),
+                          Text("${task?.select}"),
+                        ],
+                      ),
+                    );
+                  },
+                  context: context,
+                );
               },
             ),
           ],
