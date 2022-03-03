@@ -1,5 +1,6 @@
+<center>
 <img src="assets\images\splash.png" />
-
+</center>
 # To do list
 
 É um app para facilitar seu dia a dia, guarda aqueles lembretes que você sempre esquece de forma fácil e pratica.
