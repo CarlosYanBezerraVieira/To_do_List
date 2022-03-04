@@ -7,6 +7,7 @@ class ApplicationBindings implements Bindings {
   @override
   void dependencies() {
     Get.put(ApplicationController());
-    Get.put(CreateTaskController(), permanent: true);
+    Get.put(CreateTaskController(applicationController: Get.find()),
+        permanent: true);
   }
 }

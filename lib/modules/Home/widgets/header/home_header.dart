@@ -47,8 +47,10 @@ class HomeHeader extends StatelessWidget {
                             Radius.circular(100),
                           ),
                           image: DecorationImage(
-                              image: NetworkImage(
-                                  "https://avatarfiles.alphacoders.com/267/thumb-267426.png"))),
+                            image: NetworkImage(
+                                "https://i.pinimg.com/736x/02/e2/bd/02e2bd03565c591275ac582ed81f3c7d.jpg"),
+                            fit: BoxFit.cover,
+                          )),
                     ),
                   ),
                 ],

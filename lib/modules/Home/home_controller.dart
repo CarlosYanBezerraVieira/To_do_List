@@ -7,14 +7,15 @@ class HomeController extends GetxController {
   HomeController({required CreateTaskController createTaskController})
       : _createTaskController = createTaskController;
 
-  Future<TaskModel?> getTask() async {
+  Future<List<TaskModel?>> getTask() async {
     try {
-      final TaskModel? showTask = await _createTaskController.populateTasks();
+      final List<TaskModel?> showTask =
+          await _createTaskController.populateTasks();
       return showTask;
     } catch (e) {
       print("erro ao mostra a task");
       Exception(e);
-      return null;
+      return [];
     }
   }
 }

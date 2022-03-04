@@ -9,6 +9,7 @@ class CreateTaskModule implements Module {
     GetPage(
       name: "/home/create",
       page: () => CreateTaskPage(),
+      binding: CreateTaskBindings(),
     )
   ];
 }

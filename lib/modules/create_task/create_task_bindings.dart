@@ -4,6 +4,8 @@ import './create_task_controller.dart';
 class CreateTaskBindings implements Bindings {
   @override
   void dependencies() {
-    Get.put(CreateTaskController());
+    Get.put(CreateTaskController(
+      applicationController: Get.find(),
+    ));
   }
 }

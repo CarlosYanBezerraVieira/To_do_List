@@ -12,7 +12,6 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    TaskModel? task;
     return Scaffold(
       body: Container(
         color: Colors.white,
@@ -23,19 +22,32 @@ class HomePage extends GetView<HomeController> {
             Daily(),
             ListTask(
               onPressed: () async {
-                task = await controller.getTask();
+                List<TaskModel?> task = await controller.getTask();
                 showDialog(
                   builder: (BuildContext context) {
                     return AlertDialog(
                       content: Column(
                         mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(task?.title ?? "nullo"),
-                          Text(task?.alarm ?? "nullo"),
-                          Text(task?.data ?? "nullo"),
-                          Text(task?.time ?? "nullo"),
-                          Text("${task?.select}"),
+                          Expanded(
+                            child: ListView.builder(
+                                itemCount: task.length,
+                                itemBuilder: (context, index) {
+                                  return Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(task[index]?.title ?? "nullo"),
+                                      Text(task[index]?.description ?? "nullo"),
+                                      Text(task[index]?.datatime.toString() ??
+                                          "nullo"),
+                                      Text(task[index]?.time.toString() ??
+                                          "nullo"),
+                                      Text("${task[index]?.value}"),
+                                    ],
+                                  );
+                                }),
+                          ),
                         ],
                       ),
                     );

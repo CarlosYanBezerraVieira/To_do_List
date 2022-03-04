@@ -21,7 +21,7 @@ class BodyCreaTask extends GetView<CreateTaskController> {
       "12.00 AM",
       "30 minutes before (switch)"
     ];
-    List title = ["Task title", "Date", "Time", "Alarm"];
+    List title = ["Task title", "Date", "Time", "description"];
     return Container(
       child: Padding(
         padding: const EdgeInsets.only(top: 30, right: 20, left: 20),
@@ -34,7 +34,7 @@ class BodyCreaTask extends GetView<CreateTaskController> {
               title: title[0],
             ),
             ItemForm(
-              controller: controller.dataController,
+              controller: controller.datatimeController,
               icons: icons[1],
               label: label[1],
               title: title[1],
@@ -46,7 +46,7 @@ class BodyCreaTask extends GetView<CreateTaskController> {
               title: title[2],
             ),
             ItemForm(
-              controller: controller.alarmController,
+              controller: controller.descriptionController,
               icons: icons[3],
               label: label[3],
               title: title[3],

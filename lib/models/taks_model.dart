@@ -3,38 +3,38 @@ import 'dart:convert';
 class TaskModel {
   final int id;
   final String? title;
-  final String? data;
-  final String? time;
-  final String? alarm;
-  final bool select;
+  final int? datatime;
+  final int? time;
+  final String? description;
+  final int value;
   TaskModel({
     required this.id,
     this.title,
-    this.data,
+    this.datatime,
     this.time,
-    this.alarm,
-    required this.select,
+    this.description,
+    required this.value,
   });
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
       'title': title,
-      'data': data,
+      'datatime': datatime,
       'time': time,
-      'alarm': alarm,
-      'select': select,
+      'description': description,
+      'value': value,
     };
   }
 
   factory TaskModel.fromMap(Map<String, dynamic> map) {
     return TaskModel(
       id: map['id']?.toInt() ?? 0,
-      title: map['title'] ?? '',
-      data: map['data'] ?? '',
-      time: map['time'] ?? '',
-      alarm: map['alarm'] ?? '',
-      select: map['select'] ?? false,
+      title: map['title'],
+      datatime: map['datatime'],
+      time: map['time'],
+      description: map['description'],
+      value: map['value']?.toInt() ?? 0,
     );
   }
 
@@ -49,9 +49,9 @@ class TaskModel {
     TaskModel 
     id: $id,
     title: $title,
-    data: $data,
+    datatime: $datatime,
     time: $time,
-    alarm: $alarm,
-    select: $select""";
+    description: $description,
+    value: $value""";
   }
 }
