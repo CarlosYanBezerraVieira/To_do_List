@@ -21,33 +21,33 @@ class HomePage extends GetView<HomeController> {
             HomeHeader(),
             Daily(),
             ListTask(
-              onPressed: () async {
-                List<TaskModel?> task = await controller.getTask();
+              onPressed: () {
+                List<TaskModel> task = controller.task;
                 showDialog(
                   builder: (BuildContext context) {
                     return AlertDialog(
                       content: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Expanded(
-                            child: ListView.builder(
-                                itemCount: task.length,
-                                itemBuilder: (context, index) {
-                                  return Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(task[index]?.title ?? "nullo"),
-                                      Text(task[index]?.description ?? "nullo"),
-                                      Text(task[index]?.datatime.toString() ??
-                                          "nullo"),
-                                      Text(task[index]?.time.toString() ??
-                                          "nullo"),
-                                      Text("${task[index]?.value}"),
-                                    ],
-                                  );
-                                }),
-                          ),
+                          Obx(() => Expanded(
+                                child: ListView.builder(
+                                    itemCount: task.length,
+                                    itemBuilder: (context, index) {
+                                      return Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(task[index].title ?? "nullo"),
+                                          Text(task[index].description ??
+                                              "nullo"),
+                                          Text(task[index].datatime.toString()),
+                                          Text(task[index].time.toString()),
+                                          Text("${task[index].value}"),
+                                        ],
+                                      );
+                                    }),
+                              )),
                         ],
                       ),
                     );

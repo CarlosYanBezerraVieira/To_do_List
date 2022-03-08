@@ -27,6 +27,7 @@ class CreateTaskController extends GetxController {
       description: descriptionController.text,
       value: 0,
     );
+
     saveTask(task);
   }
 
@@ -48,7 +49,7 @@ class CreateTaskController extends GetxController {
     }
   }
 
-  Future<List<TaskModel?>> populateTasks() async {
+  Future<List<TaskModel>> populateTasks() async {
     try {
       final tasks = await getListTask();
       final rxTasks = <TaskModel>[...tasks ?? []].obs;
@@ -61,7 +62,6 @@ class CreateTaskController extends GetxController {
 
   Future<List<TaskModel>?> getListTask() async {
     final database = await _applicationController.openData();
-    final batch = database.batch();
     final result = await database.query('Task');
     final List<TaskModel> listTask =
         result.map((e) => TaskModel.fromMap(e)).toList();
