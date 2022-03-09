@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:to_do_list/models/taks_model.dart';
 import 'package:to_do_list/modules/Home/home_controller.dart';
 import 'package:to_do_list/modules/Home/widgets/body/daily/daily.dart';
 import 'package:to_do_list/modules/Home/widgets/body/float_action_button/float_action_button_widget.dart';
-import 'package:to_do_list/modules/Home/widgets/body/list_taks/list_task.dart';
 import 'package:to_do_list/modules/Home/widgets/header/home_header.dart';
+import 'package:to_do_list/modules/list_task/list_task_page.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
@@ -20,41 +19,8 @@ class HomePage extends GetView<HomeController> {
           children: [
             HomeHeader(),
             Daily(),
-            ListTask(
-              onPressed: () {
-                List<TaskModel> task = controller.task;
-                showDialog(
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      content: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Obx(() => Expanded(
-                                child: ListView.builder(
-                                    itemCount: task.length,
-                                    itemBuilder: (context, index) {
-                                      return Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(task[index].title ?? "nullo"),
-                                          Text(task[index].description ??
-                                              "nullo"),
-                                          Text(task[index].datatime.toString()),
-                                          Text(task[index].time.toString()),
-                                          Text("${task[index].value}"),
-                                        ],
-                                      );
-                                    }),
-                              )),
-                        ],
-                      ),
-                    );
-                  },
-                  context: context,
-                );
-              },
+            ListTaskPage(
+              controller: controller,
             ),
           ],
         ),

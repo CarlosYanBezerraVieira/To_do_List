@@ -20,12 +20,15 @@ class CreateTaskController extends GetxController {
 
   void doTask() {
     TaskModel task = TaskModel(
-      id: 0,
       title: titleController.text,
-      datatime: int.parse(datatimeController.text),
-      time: int.parse(timeController.text),
+      datatime: timeController.text.isNotEmpty
+          ? int.parse(datatimeController.text)
+          : null,
+      time: timeController.text.isNotEmpty
+          ? int.parse(timeController.text)
+          : null,
       description: descriptionController.text,
-      value: 0,
+      value: 1,
     );
 
     saveTask(task);

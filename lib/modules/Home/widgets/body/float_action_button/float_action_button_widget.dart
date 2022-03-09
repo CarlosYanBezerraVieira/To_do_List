@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:to_do_list/modules/create_task/create_task_page.dart';
 
 class FloatActionButtonWidget extends StatelessWidget {
   const FloatActionButtonWidget({Key? key}) : super(key: key);
