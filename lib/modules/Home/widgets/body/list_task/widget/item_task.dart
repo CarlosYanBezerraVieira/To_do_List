@@ -51,6 +51,7 @@ class ItemTask extends StatelessWidget {
                           textAlign: TextAlign.start,
                           style: GoogleFonts.nunito(
                             textStyle: TextStyle(
+                                overflow: TextOverflow.ellipsis,
                                 color: Color(0xff292929),
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold),

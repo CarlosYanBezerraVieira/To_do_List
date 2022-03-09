@@ -5,7 +5,8 @@ class CreateTaskBindings implements Bindings {
   @override
   void dependencies() {
     Get.put(CreateTaskController(
-      applicationController: Get.find(),
+      dataRepository: Get.find(),
+      homeController: Get.find(),
     ));
   }
 }

@@ -1,25 +1,34 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:to_do_list/application/application_controller.dart';
 import 'package:to_do_list/models/taks_model.dart';
+import 'package:to_do_list/modules/Home/home_controller.dart';
+
+import '../../repor/database/data_repository.dart';
 
 class CreateTaskController extends GetxController {
+  final DataRepository _dataRepository;
+  final HomeController _homeController;
   final titleController = TextEditingController(text: '');
   final timeController = TextEditingController(text: '');
   final datatimeController = TextEditingController(text: '');
   final descriptionController = TextEditingController(text: '');
   final tasks = <TaskModel>[].obs;
-  final ApplicationController _applicationController;
-  CreateTaskController({required ApplicationController applicationController})
-      : _applicationController = ApplicationController();
+
+  CreateTaskController(
+      {required HomeController homeController,
+      required DataRepository dataRepository})
+      : _homeController = homeController,
+        _dataRepository = dataRepository;
 
   @override
-  void onInit() {
-    super.onInit();
+  void onClose() {
+    //gambiara momentanea
+    _homeController.getTasks();
+    super.onClose();
   }
 
-  void doTask() {
-    TaskModel task = TaskModel(
+  void newTask() {
+    _dataRepository.doTask(TaskModel(
       title: titleController.text,
       datatime: timeController.text.isNotEmpty
           ? int.parse(datatimeController.text)
@@ -28,52 +37,7 @@ class CreateTaskController extends GetxController {
           ? int.parse(timeController.text)
           : null,
       description: descriptionController.text,
-      value: 1,
-    );
-
-    saveTask(task);
+      value: 0,
+    ));
   }
-
-  void saveTask(TaskModel? taskModel) async {
-    final database = await _applicationController.openData();
-    final batch = database.batch();
-    if (taskModel != null) {
-      batch.insert(
-        'Task',
-        {
-          'title': taskModel.title,
-          'datatime': taskModel.datatime,
-          'time': taskModel.time,
-          'description': taskModel.description,
-          'value': taskModel.value == false ? 0 : 1
-        },
-      );
-      batch.commit();
-    }
-  }
-
-  Future<List<TaskModel>> populateTasks() async {
-    try {
-      final tasks = await getListTask();
-      final rxTasks = <TaskModel>[...tasks ?? []].obs;
-      return rxTasks;
-    } catch (e) {
-      Exception(e);
-      return [];
-    }
-  }
-
-  Future<List<TaskModel>?> getListTask() async {
-    final database = await _applicationController.openData();
-    final result = await database.query('Task');
-    final List<TaskModel> listTask =
-        result.map((e) => TaskModel.fromMap(e)).toList();
-    return listTask;
-  }
-
-  // Future<void> deleteTask() async {
-  //   SharedPreferences taskSaved = await SharedPreferences.getInstance();
-  //   taskSaved.clear();
-  // }
-
 }

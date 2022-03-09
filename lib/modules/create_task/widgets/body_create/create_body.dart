@@ -53,7 +53,7 @@ class BodyCreaTask extends GetView<CreateTaskController> {
             ),
             GestureDetector(
               onTap: () {
-                controller.doTask();
+                controller.newTask();
                 Get.back();
               },
               child: Container(

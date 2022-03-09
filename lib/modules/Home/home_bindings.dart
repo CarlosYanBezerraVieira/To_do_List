@@ -5,9 +5,7 @@ class HomeBindings implements Bindings {
   @override
   void dependencies() {
     Get.put(
-      HomeController(
-        createTaskController: Get.find(),
-      ),
+      HomeController(dataRepository: Get.find()),
     );
   }
 }
