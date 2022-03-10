@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
+import 'package:to_do_list/database/connection.dart';
 import 'package:to_do_list/models/taks_model.dart';
-
-import '../../repor/database/data_repository.dart';
+import '../../repor/database_repositoty/database_repository.dart';
 
 class HomeController extends GetxController {
   final DataRepository _dataRepository;
@@ -12,7 +12,7 @@ class HomeController extends GetxController {
   final tasks = <TaskModel>[].obs;
 
   @override
-  void onInit() {
+  Future<void> onInit() async {
     getTasks();
     super.onInit();
   }
@@ -30,6 +30,16 @@ class HomeController extends GetxController {
       Get.back();
     } else {
       print("erro ao deletar");
+    }
+  }
+
+  void updateTask(TaskModel taskModel) {
+    try {
+      _dataRepository.update(taskModel);
+      getTasks();
+      Get.back();
+    } catch (e) {
+      print("erro ao editar task");
     }
   }
 }
