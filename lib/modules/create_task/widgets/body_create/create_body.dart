@@ -16,34 +16,80 @@ class BodyCreaTask extends GetView<CreateTaskController> {
       "12.00 AM",
       "30 minutes before (switch)"
     ];
-    List title = ["Task title", "Date", "Time", "description"];
+    List title = ["Task title", "Date", "Time", "Description"];
     return Container(
       child: Padding(
-        padding: const EdgeInsets.only(top: 30, right: 20, left: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 15).copyWith(
+          top: 30,
+        ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ItemForm(
-              controller: controller.titleController,
-              icons: IconsSvg.iconTitle,
-              label: label[0],
-              title: title[0],
+            Text(
+              title[0],
+              style: GoogleFonts.nunito(
+                  textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              )),
             ),
-            ItemForm(
-              controller: controller.datatimeController,
-              icons: IconsSvg.iconCalendar,
-              label: label[1],
-              title: title[1],
+            Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: ItemForm(
+                controller: controller.titleController,
+                icons: IconsSvg.iconTitle,
+                label: label[0],
+              ),
             ),
-            ItemForm(
-              controller: controller.timeController,
-              icons: IconsSvg.iconTime,
-              label: label[2],
-              title: title[2],
+            Text(
+              title[1],
+              style: GoogleFonts.nunito(
+                  textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              )),
             ),
-            ItemForm(
-              controller: controller.descriptionController,
-              label: label[3],
-              title: title[3],
+            Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: ItemForm(
+                controller: controller.datatimeController,
+                icons: IconsSvg.iconCalendar,
+                label: label[1],
+              ),
+            ),
+            Text(
+              title[2],
+              style: GoogleFonts.nunito(
+                  textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              )),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: ItemForm(
+                controller: controller.timeController,
+                icons: IconsSvg.iconTime,
+                label: label[2],
+              ),
+            ),
+            Text(
+              title[3],
+              style: GoogleFonts.nunito(
+                  textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              )),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 10,
+              ),
+              child: ItemForm(
+                maxLines: 3,
+                controller: controller.descriptionController,
+                label: label[3],
+              ),
             ),
             GestureDetector(
               onTap: () {

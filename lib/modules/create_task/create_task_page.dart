@@ -10,10 +10,15 @@ class CreateTaskPage extends GetView<CreateTaskController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(physics: BouncingScrollPhysics(), children: [
-        HeaderCreateTask(),
-        BodyCreaTask(),
-      ]),
-    );
+        body: SingleChildScrollView(
+      physics: BouncingScrollPhysics(),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          HeaderCreateTask(),
+          BodyCreaTask(),
+        ],
+      ),
+    ));
   }
 }
