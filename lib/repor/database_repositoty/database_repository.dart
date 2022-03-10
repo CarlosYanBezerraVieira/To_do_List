@@ -7,5 +7,6 @@ abstract class DataRepository {
   void doTask(TaskModel taskModel);
   void saveTask(TaskModel taskModel);
   void delete(int id);
+  void update(TaskModel taskModel);
   Future<List<TaskModel>> getListTask();
 }

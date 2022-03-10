@@ -1,8 +1,9 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:to_do_list/database/connection.dart';
 import 'package:to_do_list/models/taks_model.dart';
 
-import './data_repository.dart';
+import 'database_repository.dart';
 
 class DataRepositoryImpl implements DataRepository {
   @override
@@ -48,8 +49,8 @@ class DataRepositoryImpl implements DataRepository {
   @override
   Future<void> saveTask(TaskModel taskModel) async {
     try {
-      final database = await openConnnection();
-      final batch = database.batch();
+      final db = await Connection.instance.db;
+      final batch = db!.batch();
 
       batch.insert(
         'Task',
@@ -70,8 +71,8 @@ class DataRepositoryImpl implements DataRepository {
 
   @override
   Future<List<TaskModel>> getListTask() async {
-    final database = await openConnnection();
-    final result = await database.query('Task');
+    final db = await Connection.instance.db;
+    final result = await db!.query('Task');
     final List<TaskModel> listTask =
         result.map((e) => TaskModel.fromMap(e)).toList();
     return listTask;
@@ -79,7 +80,24 @@ class DataRepositoryImpl implements DataRepository {
 
   @override
   Future<void> delete(int id) async {
-    final database = await openConnnection();
-    await database.delete('Task', where: 'id = ?', whereArgs: [id]);
+    final db = await Connection.instance.db;
+    await db!.delete('Task', where: 'id = ?', whereArgs: [id]);
+  }
+
+  @override
+  Future<void> update(TaskModel taskModel) async {
+    final db = await Connection.instance.db;
+
+    db!.update(
+        'Task',
+        {
+          'title': taskModel.title,
+          'datatime': taskModel.datatime,
+          'time': taskModel.time,
+          'description': taskModel.description,
+          'value': taskModel.value
+        },
+        where: 'id = ?',
+        whereArgs: [taskModel.id]);
   }
 }
