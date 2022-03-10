@@ -1,0 +1,5 @@
+class IconsSvg {
+  static const iconTitle = "assets/images/icon/svg_icons/task.svg";
+  static const iconCalendar = "assets/images/icon/svg_icons/date.svg";
+  static const iconTime = "assets/images/icon/svg_icons/time.svg";
+}
