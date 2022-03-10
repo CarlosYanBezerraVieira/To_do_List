@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 class ItemForm extends StatelessWidget {
   ItemForm(
       {Key? key,
-      required this.icons,
+      this.icons = '',
       required this.label,
       required this.title,
       this.controller})
@@ -35,10 +35,13 @@ class ItemForm extends StatelessWidget {
               padding: const EdgeInsets.only(left: 10),
               child: Row(
                 children: [
-                  SizedBox(
-                    width: 24,
-                    height: 24,
-                    child: SvgPicture.asset(icons),
+                  Visibility(
+                    visible: icons.isNotEmpty,
+                    child: SizedBox(
+                      width: 24,
+                      height: 24,
+                      child: SvgPicture.asset(icons),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),

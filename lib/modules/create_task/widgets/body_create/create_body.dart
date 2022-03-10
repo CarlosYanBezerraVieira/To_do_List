@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:to_do_list/Shared/values/icons_svg.dart';
 import 'package:to_do_list/modules/create_task/create_task_controller.dart';
-import 'package:to_do_list/modules/create_task/widgets/header/item_form.dart';
+import 'package:to_do_list/Shared/widget/item_form.dart';
 
 class BodyCreaTask extends GetView<CreateTaskController> {
   const BodyCreaTask({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    List icons = [
-      "assets/images/icon/svg_icons/task.svg",
-      "assets/images/icon/svg_icons/date.svg",
-      "assets/images/icon/svg_icons/time.svg",
-      "assets/images/icon/svg_icons/time2.svg",
-    ];
     List label = [
       "Type here",
       "05 June 2021",
@@ -29,25 +24,24 @@ class BodyCreaTask extends GetView<CreateTaskController> {
           children: [
             ItemForm(
               controller: controller.titleController,
-              icons: icons[0],
+              icons: IconsSvg.iconTitle,
               label: label[0],
               title: title[0],
             ),
             ItemForm(
               controller: controller.datatimeController,
-              icons: icons[1],
+              icons: IconsSvg.iconCalendar,
               label: label[1],
               title: title[1],
             ),
             ItemForm(
               controller: controller.timeController,
-              icons: icons[2],
+              icons: IconsSvg.iconTime,
               label: label[2],
               title: title[2],
             ),
             ItemForm(
               controller: controller.descriptionController,
-              icons: icons[3],
               label: label[3],
               title: title[3],
             ),
