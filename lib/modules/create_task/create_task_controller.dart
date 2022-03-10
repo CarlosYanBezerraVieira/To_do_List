@@ -2,8 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:to_do_list/models/taks_model.dart';
 import 'package:to_do_list/modules/Home/home_controller.dart';
-
-import '../../repor/database/data_repository.dart';
+import '../../repor/database_repositoty/database_repository.dart';
 
 class CreateTaskController extends GetxController {
   final DataRepository _dataRepository;

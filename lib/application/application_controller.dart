@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:to_do_list/database/connection.dart';
 
 class ApplicationController extends GetxController {
   @override
@@ -13,6 +14,7 @@ class ApplicationController extends GetxController {
 
   @override
   void onClose() {
+    Connection.instance.closeConnection();
     super.onClose();
   }
 }

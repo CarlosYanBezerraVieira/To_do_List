@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:to_do_list/modules/Home/home_controller.dart';
-import '../../repor/database/data_repository.dart';
-import '../../repor/database/data_repository_impl.dart';
+import '../../repor/database_repositoty/database_repository.dart';
+import '../../repor/database_repositoty/database_repository_impl.dart';
 import '../application_controller.dart';
 
 class ApplicationBindings implements Bindings {
