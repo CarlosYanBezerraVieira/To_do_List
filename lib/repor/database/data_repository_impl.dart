@@ -15,8 +15,7 @@ class DataRepositoryImpl implements DataRepository {
     }, onCreate: (Database db, int version) {
       print("banco criado");
       final batch = db.batch();
-      batch.execute(
-          '''
+      batch.execute('''
         create table Task(
           id Integer primary key autoincrement,
           title text,
@@ -76,5 +75,11 @@ class DataRepositoryImpl implements DataRepository {
     final List<TaskModel> listTask =
         result.map((e) => TaskModel.fromMap(e)).toList();
     return listTask;
+  }
+
+  @override
+  Future<void> delete(int id) async {
+    final database = await openConnnection();
+    await database.delete('Task', where: 'id = ?', whereArgs: [id]);
   }
 }

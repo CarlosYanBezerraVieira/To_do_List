@@ -11,6 +11,7 @@ class ListTaskPage extends StatelessWidget {
     required this.controller,
   }) : super(key: key);
   final HomeController controller;
+
   @override
   Widget build(BuildContext context) {
     //melhor o uso do future builder
@@ -33,6 +34,19 @@ class ListTaskPage extends StatelessWidget {
                           showDialog(
                             builder: (BuildContext context) {
                               return AlertDialog(
+                                actions: [
+                                  IconButton(
+                                      onPressed: () => Get.back(),
+                                      icon: Icon(Icons.close)),
+                                  IconButton(
+                                      onPressed: () {
+                                        controller.deleteTask(tasks[index]);
+                                      },
+                                      icon: Icon(Icons.delete)),
+                                  IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(Icons.create)),
+                                ],
                                 content: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [

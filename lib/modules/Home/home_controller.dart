@@ -21,4 +21,15 @@ class HomeController extends GetxController {
     final result = await _dataRepository.getListTask();
     tasks.assignAll(result);
   }
+
+  void deleteTask(TaskModel taskModel) {
+    final id = taskModel.id;
+    if (id != null) {
+      _dataRepository.delete(id);
+      getTasks();
+      Get.back();
+    } else {
+      print("erro ao deletar");
+    }
+  }
 }

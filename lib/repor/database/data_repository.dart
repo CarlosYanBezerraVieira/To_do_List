@@ -6,5 +6,6 @@ abstract class DataRepository {
   Future<Database> openConnnection();
   void doTask(TaskModel taskModel);
   void saveTask(TaskModel taskModel);
+  void delete(int id);
   Future<List<TaskModel>> getListTask();
 }
