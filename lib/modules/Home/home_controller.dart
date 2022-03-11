@@ -57,17 +57,20 @@ class HomeController extends GetxController {
     tasks.removeWhere((task) {
       if (task.value == 0) {
         listNotSelect.add(task);
-        tasksNotSelect.assignAll(listNotSelect);
 
         return true;
       } else {
         listSelect.add(task);
         tasksSelect.assignAll(listSelect);
-        sizeTaskSelect.value = tasksSelect.length;
-        size.value = tasksSelect.length * 0.115;
+
         return false;
       }
     });
+
+    tasksNotSelect.assignAll(listNotSelect);
+    tasksSelect.assignAll(listSelect);
+    sizeTaskSelect.value = tasksSelect.length;
+    size.value = tasksSelect.length * 0.115;
     listNotSelect = [];
     listSelect = [];
   }

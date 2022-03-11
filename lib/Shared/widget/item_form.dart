@@ -25,7 +25,6 @@ class ItemForm extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(5),
         child: TextFormField(
-          textInputAction: TextInputAction.next,
           autofocus: autofocus,
           cursorColor: Colors.grey,
           maxLines: maxLines,
