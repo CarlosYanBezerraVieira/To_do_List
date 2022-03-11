@@ -23,13 +23,17 @@ class Daily extends StatelessWidget {
                 elevation: 10,
                 child: Container(
                   height: Get.height * controller.size.value,
-                  width: Get.width * 0.875,
+                  width: Get.width * 0.87,
                   decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       gradient: LinearGradient(
-                        begin: Alignment.topCenter,
+                        begin: Alignment.topLeft,
                         colors: [
                           Color(0xff7F00FF),
+                          Color(0xff7F00FF),
+                          Color(0xff8C00FF),
+                          Color(0xff8C00FF),
+                          Color(0xffB000FF),
                           Color(0xffE100FF),
                         ],
                       )),

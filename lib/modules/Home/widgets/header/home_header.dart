@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:to_do_list/modules/Home/home_controller.dart';
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({Key? key}) : super(key: key);
-
+  const HomeHeader({Key? key, required this.controller}) : super(key: key);
+  final HomeController controller;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -65,14 +66,14 @@ class HomeHeader extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Today",
+                        "Suas",
                         style: GoogleFonts.nunito(
                           textStyle: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 24),
                         ),
                       ),
                       Text(
-                        "Schedule",
+                        "Tarefas",
                         style: GoogleFonts.nunito(
                           textStyle: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 24),
@@ -82,16 +83,16 @@ class HomeHeader extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: 30),
-                    child: Text(
-                      "2/10 Task today",
-                      style: GoogleFonts.nunito(
-                        textStyle: TextStyle(
-                          color: Color(0xff7F00FF),
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
+                    child: Obx(() => Text(
+                          "${controller.sizeTaskSelect}/${controller.sizeTask} Tarefas realizadas",
+                          style: GoogleFonts.nunito(
+                            textStyle: TextStyle(
+                              color: Color(0xff7F00FF),
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        )),
                   ),
                 ],
               ),

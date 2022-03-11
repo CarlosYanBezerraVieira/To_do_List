@@ -16,6 +16,8 @@ class HomeController extends GetxController {
   List<TaskModel> listSelect = [];
 
   var size = 0.0.obs;
+  var sizeTask = 0.obs;
+  var sizeTaskSelect = 0.obs;
 
   @override
   Future<void> onInit() async {
@@ -26,6 +28,7 @@ class HomeController extends GetxController {
   Future<void> getTasks() async {
     final result = await _dataRepository.getListTask();
     tasks.assignAll(result);
+    sizeTask.value = tasks.length;
     filtrar();
   }
 
@@ -60,6 +63,7 @@ class HomeController extends GetxController {
       } else {
         listSelect.add(task);
         tasksSelect.assignAll(listSelect);
+        sizeTaskSelect.value = tasksSelect.length;
         size.value = tasksSelect.length * 0.115;
         return false;
       }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../../../models/taks_model.dart';
@@ -33,14 +34,19 @@ class ItemDaily extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(model.title ?? "",
-                          textAlign: TextAlign.start,
-                          style: GoogleFonts.nunito(
-                            textStyle: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold),
-                          )),
+                      SizedBox(
+                        width: Get.width * 0.5,
+                        child: Text(model.title ?? "",
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            textAlign: TextAlign.justify,
+                            style: GoogleFonts.nunito(
+                              textStyle: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold),
+                            )),
+                      ),
                       const SizedBox(
                         height: 10,
                       ),

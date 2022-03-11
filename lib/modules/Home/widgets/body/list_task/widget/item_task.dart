@@ -52,7 +52,9 @@ class ItemTask extends StatelessWidget {
                         width: Get.width * 0.5,
                         child: Text(
                           model.title ?? '',
-                          textAlign: TextAlign.start,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.justify,
                           style: GoogleFonts.nunito(
                             textStyle: TextStyle(
                                 color: Color(0xff292929),

@@ -17,7 +17,9 @@ class HomePage extends GetView<HomeController> {
       body: ListView(
         physics: const BouncingScrollPhysics(),
         children: [
-          HomeHeader(),
+          HomeHeader(
+            controller: controller,
+          ),
           Daily(
             controller: controller,
           ),
