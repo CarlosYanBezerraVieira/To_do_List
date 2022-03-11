@@ -68,6 +68,7 @@ class BodyCreaTask extends GetView<CreateTaskController> {
             Padding(
               padding: const EdgeInsets.only(top: 10, bottom: 10),
               child: ItemForm(
+                maxLines: 1,
                 controller: controller.timeController,
                 icons: IconsSvg.iconTime,
                 label: label[2],
@@ -86,7 +87,7 @@ class BodyCreaTask extends GetView<CreateTaskController> {
                 top: 10,
               ),
               child: ItemForm(
-                maxLines: 3,
+                maxLines: 4,
                 controller: controller.descriptionController,
                 label: label[3],
               ),
