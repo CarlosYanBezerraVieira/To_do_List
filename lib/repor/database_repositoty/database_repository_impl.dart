@@ -40,7 +40,7 @@ class DataRepositoryImpl implements DataRepository {
       datatime: taskModel.datatime,
       time: taskModel.time,
       description: taskModel.description,
-      value: 0,
+      value: taskModel.value,
     );
 
     saveTask(task);
@@ -82,6 +82,7 @@ class DataRepositoryImpl implements DataRepository {
   Future<void> delete(int id) async {
     final db = await Connection.instance.db;
     await db!.delete('Task', where: 'id = ?', whereArgs: [id]);
+    getListTask();
   }
 
   @override

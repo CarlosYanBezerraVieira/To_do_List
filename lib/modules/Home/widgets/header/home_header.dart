@@ -13,7 +13,7 @@ class HomeHeader extends StatelessWidget {
         width: Get.width,
         height: 190,
         child: Padding(
-          padding: EdgeInsets.only(top: 20, right: 20, left: 20),
+          padding: EdgeInsets.only(top: 20, right: 25, left: 25),
           child: Column(
             children: [
               Row(
