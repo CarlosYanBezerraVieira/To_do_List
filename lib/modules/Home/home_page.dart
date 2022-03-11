@@ -13,18 +13,18 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: ListView(
-          physics: const BouncingScrollPhysics(),
-          children: [
-            HomeHeader(),
-            Daily(),
-            ListTaskPage(
-              controller: controller,
-            ),
-          ],
-        ),
+      backgroundColor: Colors.white,
+      body: ListView(
+        physics: const BouncingScrollPhysics(),
+        children: [
+          HomeHeader(),
+          Daily(
+            controller: controller,
+          ),
+          ListTaskPage(
+            controller: controller,
+          ),
+        ],
       ),
       floatingActionButton: Container(
         width: 60,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:to_do_list/models/taks_model.dart';
 
@@ -9,16 +10,16 @@ class ItemTask extends StatelessWidget {
   final Function()? onPressed;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 5, left: 20, bottom: 20, top: 5),
-      child: Material(
-        color: Colors.white,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                Container(
+    return Material(
+      color: Colors.white,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: Container(
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                       border: Border(
@@ -39,55 +40,57 @@ class ItemTask extends StatelessWidget {
                     ),
                     width: 20,
                     height: 20),
-                GestureDetector(
-                  onTap: onPressed,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 30),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
+              ),
+              GestureDetector(
+                onTap: onPressed,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 30),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: Get.width * 0.5,
+                        child: Text(
                           model.title ?? '',
                           textAlign: TextAlign.start,
                           style: GoogleFonts.nunito(
                             textStyle: TextStyle(
-                                overflow: TextOverflow.ellipsis,
                                 color: Color(0xff292929),
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        model.time != null
-                            ? Text(
-                                model.time.toString(),
-                                style: GoogleFonts.nunito(
-                                    textStyle: TextStyle(
-                                        color: Color(0xffABABAB),
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold)),
-                              )
-                            : SizedBox.shrink()
-                      ],
-                    ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      model.time != null
+                          ? Text(
+                              model.time.toString(),
+                              style: GoogleFonts.nunito(
+                                  textStyle: TextStyle(
+                                      color: Color(0xffABABAB),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold)),
+                            )
+                          : SizedBox.shrink()
+                    ],
                   ),
                 ),
-              ],
-            ),
-            Row(
-              children: [
-                IconButton(
-                  onPressed: onPressed,
-                  icon: const Icon(Icons.chevron_right_outlined),
-                  color: Colors.black,
-                  iconSize: 30,
-                ),
-              ],
-            )
-          ],
-        ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              IconButton(
+                onPressed: onPressed,
+                icon: const Icon(Icons.chevron_right_outlined),
+                color: Colors.black,
+                iconSize: 30,
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
