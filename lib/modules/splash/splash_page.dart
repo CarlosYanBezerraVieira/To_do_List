@@ -25,6 +25,16 @@ class SplashPage extends GetView<SplashPageController> {
             Text(
               "To do \n          List",
               style: TextStyle(color: Colors.grey[500], fontSize: 40),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            SizedBox(
+              width: Get.width * 0.8,
+              child: LinearProgressIndicator(
+                backgroundColor: Colors.grey[300],
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.purple),
+              ),
             )
           ],
         ),
