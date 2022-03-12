@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:to_do_list/modules/Home/home_controller.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -8,6 +9,10 @@ class HomeHeader extends StatelessWidget {
   final HomeController controller;
   @override
   Widget build(BuildContext context) {
+    final dataPtDia = DateFormat('dd', 'pt_BR').format(DateTime.now());
+    final dataPtMes = DateFormat('MMMM', 'pt_BR').format(DateTime.now());
+    final dataPtAno = DateFormat('yyyy', 'pt_BR').format(DateTime.now());
+
     return Material(
       color: Colors.white,
       child: SizedBox(
@@ -21,6 +26,7 @@ class HomeHeader extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("Thursday",
                           style: GoogleFonts.nunito(
@@ -28,7 +34,7 @@ class HomeHeader extends StatelessWidget {
                               fontSize: 18,
                               color: Color(0xff7F00FF))),
                       Text(
-                        "03 June 2021",
+                        "${dataPtDia} de ${dataPtMes} de ${dataPtAno}",
                         style: GoogleFonts.nunito(
                           textStyle: TextStyle(
                               color: Color(0xff4A4A4A),

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/date_symbol_data_local.dart';
+
 import 'package:to_do_list/modules/Home/home_module.dart';
 import 'package:to_do_list/modules/create_task/create_task_module.dart';
 import 'package:to_do_list/modules/splash/splash_module.dart';
 
 import 'application/bindinds/application_bindings.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,6 +20,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      localizationsDelegates: [
+        GlobalWidgetsLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate
+      ],
+      supportedLocales: const [
+        Locale('pt', 'BR'),
+      ],
       title: 'To do List',
       theme: ThemeData(
         primarySwatch: Colors.blue,
