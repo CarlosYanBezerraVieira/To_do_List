@@ -7,27 +7,25 @@ class FloatActionButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      child: Container(
+      onPressed: () {
+        Get.toNamed("/home/create");
+      },
+      child: Ink(
         width: 60,
         height: 60,
+        decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: LinearGradient(
+              colors: [
+                Color(0xff7F00FF),
+                Color(0xffE100FF),
+              ],
+            )),
         child: Icon(
           Icons.add,
           size: 35,
         ),
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            colors: [
-              Color(0xff7F00FF),
-              Color(0xffE100FF),
-            ],
-          ),
-        ),
       ),
-      onPressed: () {
-        Get.toNamed("/home/create");
-      },
     );
   }
 }

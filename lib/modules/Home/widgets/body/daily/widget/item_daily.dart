@@ -11,10 +11,11 @@ class ItemDaily extends StatelessWidget {
   final TaskModel model;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 15, bottom: 20, right: 10, left: 10),
-      child: InkWell(
-        onTap: onPressed,
+    return Material(
+      color: Colors.transparent,
+      child: Padding(
+        padding:
+            const EdgeInsets.only(top: 15, bottom: 20, right: 10, left: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

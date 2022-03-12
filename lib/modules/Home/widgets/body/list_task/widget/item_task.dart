@@ -36,7 +36,7 @@ class ItemTask extends StatelessWidget {
                         Colors.transparent,
                       ),
                       value: model.value == 0 ? false : true,
-                      onChanged: null,
+                      onChanged: (value) {},
                     ),
                     width: 20,
                     height: 20),

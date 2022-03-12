@@ -92,12 +92,12 @@ class BodyCreaTask extends GetView<CreateTaskController> {
                 label: label[3],
               ),
             ),
-            GestureDetector(
+            InkWell(
               onTap: () {
                 controller.newTask();
                 Get.back();
               },
-              child: Container(
+              child: Ink(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     gradient: LinearGradient(
@@ -106,23 +106,21 @@ class BodyCreaTask extends GetView<CreateTaskController> {
                         Color(0xffE100FF),
                       ],
                     )),
-                child: SizedBox(
-                  height: 76,
-                  width: 315,
-                  child: Center(
-                    child: Text(
-                      "Create task",
-                      style: GoogleFonts.nunito(
-                          textStyle: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      )),
-                    ),
+                height: 76,
+                width: 315,
+                child: Center(
+                  child: Text(
+                    "Create task",
+                    style: GoogleFonts.nunito(
+                        textStyle: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    )),
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
