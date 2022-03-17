@@ -46,7 +46,9 @@ class HomeController extends GetxController {
   void updateTask(TaskModel taskModel) {
     try {
       _dataRepository.update(taskModel);
+
       getTasks();
+      filtrar();
       Get.back();
     } catch (e) {
       print("erro ao editar task");

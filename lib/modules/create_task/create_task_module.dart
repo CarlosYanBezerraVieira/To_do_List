@@ -1,7 +1,7 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:to_do_list/application/modules/module.dart';
-import 'package:to_do_list/modules/create_task/create_task_bindings.dart';
-import 'package:to_do_list/modules/create_task/create_task_page.dart';
+import 'create_task_bindings.dart';
+import 'create_task_page.dart';
 
 class CreateTaskModule implements Module {
   @override

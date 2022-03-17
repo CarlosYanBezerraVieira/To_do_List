@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
+import 'package:to_do_list/Shared/values/date_formatt.dart';
 import 'package:to_do_list/modules/Home/home_controller.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -9,10 +9,6 @@ class HomeHeader extends StatelessWidget {
   final HomeController controller;
   @override
   Widget build(BuildContext context) {
-    final dataPtDia = DateFormat('dd', 'pt_BR').format(DateTime.now());
-    final dataPtMes = DateFormat('MMMM', 'pt_BR').format(DateTime.now());
-    final dataPtAno = DateFormat('yyyy', 'pt_BR').format(DateTime.now());
-
     return Material(
       color: Colors.white,
       child: SizedBox(
@@ -34,7 +30,7 @@ class HomeHeader extends StatelessWidget {
                               fontSize: 18,
                               color: Color(0xff7F00FF))),
                       Text(
-                        "${dataPtDia} de ${dataPtMes} de ${dataPtAno}",
+                        "${DateFormatt().getActualDay()} de ${DateFormatt().getActualMonth()} de ${DateFormatt().getActualYear()}",
                         style: GoogleFonts.nunito(
                           textStyle: TextStyle(
                               color: Color(0xff4A4A4A),
@@ -44,22 +40,23 @@ class HomeHeader extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 50,
-                    width: 50,
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(100),
-                          ),
-                          image: DecorationImage(
-                            image: NetworkImage(
-                                "https://i.pinimg.com/736x/02/e2/bd/02e2bd03565c591275ac582ed81f3c7d.jpg"),
-                            fit: BoxFit.cover,
-                          )),
-                    ),
-                  ),
+
+                  // SizedBox(
+                  //   height: 50,
+                  //   width: 50,
+                  //   child: Container(
+                  //     decoration: BoxDecoration(
+                  //         color: Colors.grey,
+                  //         borderRadius: BorderRadius.all(
+                  //           Radius.circular(100),
+                  //         ),
+                  //         image: DecorationImage(
+                  //           image: NetworkImage(
+                  //               "https://i.pinimg.com/736x/02/e2/bd/02e2bd03565c591275ac582ed81f3c7d.jpg"),
+                  //           fit: BoxFit.cover,
+                  //         )),
+                  //   ),
+                  // ),
                 ],
               ),
               const SizedBox(

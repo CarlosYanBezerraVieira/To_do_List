@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:to_do_list/modules/create_task/widgets/body_create/create_body.dart';
-import 'package:to_do_list/modules/create_task/widgets/header/header_create_taks.dart';
 import './create_task_controller.dart';
+import 'widgets/body_create/create_body.dart';
+import 'widgets/header/header_create_taks.dart';
 
 class CreateTaskPage extends GetView<CreateTaskController> {
   const CreateTaskPage({Key? key}) : super(key: key);
