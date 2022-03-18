@@ -43,18 +43,6 @@ class HomeController extends GetxController {
     }
   }
 
-  void updateTask(TaskModel taskModel) {
-    try {
-      _dataRepository.update(taskModel);
-
-      getTasks();
-      filtrar();
-      Get.back();
-    } catch (e) {
-      print("erro ao editar task");
-    }
-  }
-
   void filtrar() {
     tasks.removeWhere((task) {
       if (task.value == 0) {
@@ -75,5 +63,25 @@ class HomeController extends GetxController {
     size.value = tasksSelect.length * 0.115;
     listNotSelect = [];
     listSelect = [];
+  }
+
+  void UpdateValueTask(TaskModel taskModel) {
+    try {
+      final id = taskModel.id;
+      final value;
+      if (taskModel.value == 0) {
+        value = 1;
+      } else {
+        value = 0;
+      }
+      if (id != null) {
+        _dataRepository.updateValue(id, value);
+      }
+
+      filtrar();
+      getTasks();
+    } catch (e) {
+      Exception("erro na hora de muda o valor");
+    }
   }
 }

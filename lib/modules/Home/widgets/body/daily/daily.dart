@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:to_do_list/modules/Home/widgets/body/daily/widget/item_daily.dart';
-
-import '../../../../../Shared/values/icons_svg.dart';
-import '../../../../../Shared/widget/item_form.dart';
 import '../../../../../models/taks_model.dart';
 import '../../../home_controller.dart';
 
 class Daily extends StatelessWidget {
-  Daily({Key? key, required this.controller}) : super(key: key);
+  Daily({Key? key, required this.controller, this.onPressed}) : super(key: key);
   final HomeController controller;
+  final Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     List<TaskModel> tasks = controller.tasksSelect;
@@ -41,78 +39,21 @@ class Daily extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: tasks.length,
                     itemBuilder: (context, index) {
-                      return ItemDaily(
-                        model: tasks[index],
-                        onPressed: () {
-                          showDialog(
-                            builder: (BuildContext context) {
-                              return AlertDialog(
-                                backgroundColor: Colors.white,
-                                actions: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      IconButton(
-                                          onPressed: () {
-                                            controller.deleteTask(tasks[index]);
-                                          },
-                                          icon: Icon(Icons.delete)),
-                                      IconButton(
-                                          onPressed: () => controller
-                                              .updateTask(tasks[index]),
-                                          icon: Icon(Icons.create)),
-                                    ],
-                                  ),
-                                ],
-                                contentPadding: EdgeInsets.all(0),
-                                content: Container(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Align(
-                                        alignment: Alignment.bottomRight,
-                                        child: IconButton(
-                                            onPressed: () => Get.back(),
-                                            icon: Icon(Icons.close)),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 10),
-                                        child: Column(
-                                          children: [
-                                            ItemForm(
-                                              enabled: false,
-                                              icons: IconsSvg.iconTitle,
-                                              label: "Titulo",
-                                            ),
-                                            ItemForm(
-                                              enabled: false,
-                                              icons: IconsSvg.iconCalendar,
-                                              label: "Data",
-                                            ),
-                                            ItemForm(
-                                              enabled: false,
-                                              icons: IconsSvg.iconTime,
-                                              label: "Time",
-                                            ),
-                                            ItemForm(
-                                              enabled: false,
-                                              label: "Description",
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              );
-                            },
-                            context: context,
-                          );
-                        },
+                      return Hero(
+                        tag: tasks[index],
+                        child: GestureDetector(
+                          onTap: onPressed,
+                          child: ItemDaily(
+                              model: tasks[index],
+                              onPressed: () {
+                                Get.toNamed(
+                                  '/edit_task',
+                                  arguments: tasks[index],
+                                );
+                              },
+                              check: () =>
+                                  controller.UpdateValueTask(tasks[index])),
+                        ),
                       );
                     },
                   ),

@@ -4,10 +4,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:to_do_list/models/taks_model.dart';
 
 class ItemTask extends StatelessWidget {
-  const ItemTask({Key? key, required this.onPressed, required this.model})
+  const ItemTask(
+      {Key? key,
+      required this.onPressed,
+      required this.model,
+      required this.check})
       : super(key: key);
   final TaskModel model;
   final Function()? onPressed;
+  final Function() check;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -31,13 +36,14 @@ class ItemTask extends StatelessWidget {
                       ),
                     ),
                     child: Checkbox(
-                      checkColor: Colors.black,
-                      fillColor: MaterialStateProperty.all<Color>(
-                        Colors.transparent,
-                      ),
-                      value: model.value == 0 ? false : true,
-                      onChanged: (value) {},
-                    ),
+                        checkColor: Colors.black,
+                        fillColor: MaterialStateProperty.all<Color>(
+                          Colors.transparent,
+                        ),
+                        value: model.value == 0 ? false : true,
+                        onChanged: (value) {
+                          check();
+                        }),
                     width: 20,
                     height: 20),
               ),

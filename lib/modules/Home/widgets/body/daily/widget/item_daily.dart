@@ -5,9 +5,14 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../../../models/taks_model.dart';
 
 class ItemDaily extends StatelessWidget {
-  const ItemDaily({Key? key, required this.model, required this.onPressed})
+  const ItemDaily(
+      {Key? key,
+      required this.model,
+      required this.onPressed,
+      required this.check})
       : super(key: key);
   final Function()? onPressed;
+  final Function() check;
   final TaskModel model;
   @override
   Widget build(BuildContext context) {
@@ -28,39 +33,44 @@ class ItemDaily extends StatelessWidget {
                     fillColor: MaterialStateProperty.all<Color>(
                       Colors.white,
                     ),
-                    value: true,
-                    onChanged: (valor) {}),
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        width: Get.width * 0.5,
-                        child: Text(model.title ?? "",
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            textAlign: TextAlign.justify,
-                            style: GoogleFonts.nunito(
-                              textStyle: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            )),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "06.00 AM",
-                        style: GoogleFonts.nunito(
-                          textStyle: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold),
+                    value: model.value == 1 ? true : false,
+                    onChanged: (valor) {
+                      check();
+                    }),
+                GestureDetector(
+                  onTap: onPressed,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: Get.width * 0.5,
+                          child: Text(model.title ?? "",
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.justify,
+                              style: GoogleFonts.nunito(
+                                textStyle: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
+                              )),
                         ),
-                      ),
-                    ],
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "06.00 AM",
+                          style: GoogleFonts.nunito(
+                            textStyle: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

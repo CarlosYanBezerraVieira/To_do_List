@@ -101,4 +101,10 @@ class DataRepositoryImpl implements DataRepository {
         where: 'id = ?',
         whereArgs: [taskModel.id]);
   }
+
+  @override
+  Future<void> updateValue(int id, int value) async {
+    final db = await Connection.instance.db;
+    db!.update('Task', {'value': value}, where: 'id = ?', whereArgs: [id]);
+  }
 }
