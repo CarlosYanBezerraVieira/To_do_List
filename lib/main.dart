@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:to_do_list/modules/Home/home_module.dart';
+import 'package:to_do_list/modules/editTask/edit_task_module.dart';
 import 'package:to_do_list/modules/splash/splash_module.dart';
 import 'application/bindinds/application_bindings.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -34,7 +35,8 @@ class MyApp extends StatelessWidget {
       getPages: [
         ...SplashModule().routers,
         ...HomeModule().routers,
-        ...CreateTaskModule().routers
+        ...CreateTaskModule().routers,
+        ...EditTaskModule().routers
       ],
     );
   }
