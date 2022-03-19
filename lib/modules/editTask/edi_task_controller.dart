@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:path/path.dart';
 import 'package:to_do_list/models/taks_model.dart';
 import 'package:to_do_list/modules/Home/home_controller.dart';
 import 'package:to_do_list/repor/database_repositoty/database_repository.dart';
@@ -24,6 +23,12 @@ class EdiTaskController extends GetxController {
   void onInit() {
     if (Get.arguments is TaskModel) {
       task = Get.arguments;
+      titleController.text = task.title ?? "";
+      timeController.text = task.time != null ? task.time.toString() : "";
+      datatimeController.text =
+          task.datatime != null ? task.datatime.toString() : "";
+      descriptionController.text = task.title ?? "";
+
       //passar dados pros controlles
     } else {
       return Get.back();
@@ -31,13 +36,26 @@ class EdiTaskController extends GetxController {
     super.onInit();
   }
 
-  void updateTask(TaskModel taskModel) {
+  void updateTask() {
     try {
-      _dataRepository.update(taskModel);
-
-      _homeController.getTasks();
-      _homeController.filtrar();
-      Get.back();
+      var id = task.id;
+      if (id != null) {
+        _dataRepository.update(
+            TaskModel(
+              title: titleController.text,
+              datatime: timeController.text.isNotEmpty
+                  ? int.parse(datatimeController.text)
+                  : null,
+              time: timeController.text.isNotEmpty
+                  ? int.parse(timeController.text)
+                  : null,
+              description: descriptionController.text,
+              value: task.value,
+            ),
+            id);
+        _homeController.getTasks();
+        Get.back();
+      }
     } catch (e) {
       print("erro ao editar task");
     }
