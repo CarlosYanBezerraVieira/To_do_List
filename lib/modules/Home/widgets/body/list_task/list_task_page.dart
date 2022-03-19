@@ -14,27 +14,27 @@ class ListTaskPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<TaskModel> tasks = controller.tasksNotSelect;
-    return Obx(() => Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30).copyWith(top: 30),
-          child: ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: tasks.length,
-            itemBuilder: (context, index) {
-              return Hero(
-                tag: tasks[index],
-                child: ItemTask(
+    return Material(
+      child: Obx(() => Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 30).copyWith(top: 30),
+            child: ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: tasks.length,
+              itemBuilder: (context, index) {
+                return ItemTask(
                     model: tasks[index],
                     onPressed: () {
                       Get.toNamed(
-                        '/edit_task',
+                        '/edit',
                         arguments: tasks[index],
                       );
                     },
-                    check: () => controller.UpdateValueTask(tasks[index])),
-              );
-            },
-          ),
-        ));
+                    check: () => controller.UpdateValueTask(tasks[index]));
+              },
+            ),
+          )),
+    );
   }
 }

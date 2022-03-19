@@ -39,21 +39,18 @@ class Daily extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: tasks.length,
                     itemBuilder: (context, index) {
-                      return Hero(
-                        tag: tasks[index],
-                        child: GestureDetector(
-                          onTap: onPressed,
-                          child: ItemDaily(
-                              model: tasks[index],
-                              onPressed: () {
-                                Get.toNamed(
-                                  '/edit_task',
-                                  arguments: tasks[index],
-                                );
-                              },
-                              check: () =>
-                                  controller.UpdateValueTask(tasks[index])),
-                        ),
+                      return GestureDetector(
+                        onTap: onPressed,
+                        child: ItemDaily(
+                            model: tasks[index],
+                            onPressed: () {
+                              Get.toNamed(
+                                '/edit',
+                                arguments: tasks[index],
+                              );
+                            },
+                            check: () =>
+                                controller.UpdateValueTask(tasks[index])),
                       );
                     },
                   ),
