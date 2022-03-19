@@ -86,7 +86,7 @@ class DataRepositoryImpl implements DataRepository {
   }
 
   @override
-  Future<void> update(TaskModel taskModel) async {
+  Future<void> update(TaskModel taskModel, int id) async {
     final db = await Connection.instance.db;
 
     db!.update(
@@ -99,7 +99,7 @@ class DataRepositoryImpl implements DataRepository {
           'value': taskModel.value
         },
         where: 'id = ?',
-        whereArgs: [taskModel.id]);
+        whereArgs: [id]);
   }
 
   @override
