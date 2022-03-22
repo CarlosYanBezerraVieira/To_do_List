@@ -28,6 +28,8 @@ class Connection {
         await db.execute('PRAGMA forein_keys = ON');
       }, onCreate: _onCreate, onUpgrade: _onUpgrade, onDowngrade: _onDowngrade);
       return _db;
+    } else {
+      return null;
     }
   }
 
