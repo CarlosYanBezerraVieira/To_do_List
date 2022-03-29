@@ -29,106 +29,194 @@ class ListTaskPage extends StatelessWidget {
                 return ItemTask(
                     model: tasks[index],
                     onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            backgroundColor: Colors.transparent,
-                            contentPadding: EdgeInsets.all(0),
-                            content: Container(
-                              padding: EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 15),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                      Get.bottomSheet(
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 15),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 20),
+                                      child: Row(
+                                        children: [
+                                          SvgPicture.asset(
+                                              IconsSvg.iconCalendar),
+                                          Padding(
+                                            padding:
+                                                const EdgeInsets.only(left: 5),
+                                            child: Text(
+                                              tasks[index].datatime.toString(),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Row(
                                       children: [
+                                        SvgPicture.asset(IconsSvg.iconTime),
                                         Padding(
                                           padding:
-                                              const EdgeInsets.only(left: 20),
-                                          child: Row(
-                                            children: [
-                                              SvgPicture.asset(
-                                                  IconsSvg.iconCalendar),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 5),
-                                                child: Text(
-                                                  tasks[index]
-                                                      .datatime
-                                                      .toString(),
-                                                ),
-                                              ),
-                                            ],
+                                              const EdgeInsets.only(left: 5),
+                                          child: Text(
+                                            tasks[index].time.toString(),
                                           ),
                                         ),
-                                        Row(
-                                          children: [
-                                            SvgPicture.asset(IconsSvg.iconTime),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 5),
-                                              child: Text(
-                                                tasks[index].time.toString(),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        IconButton(
-                                          onPressed: () {
-                                            Get.toNamed(
-                                              '/edit',
-                                              arguments: tasks[index],
-                                            );
-                                          },
-                                          icon: Icon(Icons.more_vert_rounded),
-                                          color: Colors.purple,
-                                        )
                                       ],
                                     ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.symmetric(horizontal: 15)
-                                        .copyWith(top: 0),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        border: Border.all(
-                                            color: Colors.purpleAccent,
-                                            width: 2)),
-                                    child: ItemForm(
-                                      initialValue: tasks[index].title,
-                                      enabled: false,
-                                      icons: IconsSvg.iconTitle,
-                                      label: "Titulo",
-                                    ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.symmetric(
-                                        horizontal: 15, vertical: 10),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        border: Border.all(
-                                            color: Colors.purpleAccent,
-                                            width: 2)),
-                                    child: ItemForm(
-                                      initialValue: tasks[index].description,
-                                      enabled: false,
-                                      label: "Description",
-                                    ),
-                                  ),
-                                ],
+                                    IconButton(
+                                      onPressed: () {
+                                        Get.toNamed(
+                                          '/edit',
+                                          arguments: tasks[index],
+                                        );
+                                      },
+                                      icon: Icon(Icons.more_vert_rounded),
+                                      color: Colors.purple,
+                                    )
+                                  ],
+                                ),
                               ),
-                            ),
-                          );
-                        },
+                              Container(
+                                margin: EdgeInsets.symmetric(horizontal: 15)
+                                    .copyWith(top: 0),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(
+                                        color: Colors.purpleAccent, width: 2)),
+                                child: ItemForm(
+                                  initialValue: tasks[index].title,
+                                  enabled: false,
+                                  icons: IconsSvg.iconTitle,
+                                  label: "Titulo",
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.symmetric(
+                                    horizontal: 15, vertical: 10),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(
+                                        color: Colors.purpleAccent, width: 2)),
+                                child: ItemForm(
+                                  initialValue: tasks[index].description,
+                                  enabled: false,
+                                  label: "Description",
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       );
+                      // showDialog(
+                      //   context: context,
+                      //   builder: (BuildContext context) {
+                      //     return AlertDialog(
+                      //       backgroundColor: Colors.transparent,
+                      //       contentPadding: EdgeInsets.all(0),
+                      //       content: Container(
+                      //         padding: EdgeInsets.all(5),
+                      //         decoration: BoxDecoration(
+                      //             color: Colors.white,
+                      //             borderRadius: BorderRadius.circular(20)),
+                      //         child: Column(
+                      //           mainAxisSize: MainAxisSize.min,
+                      //           children: [
+                      //             Padding(
+                      //               padding: const EdgeInsets.symmetric(
+                      //                   vertical: 15),
+                      //               child: Row(
+                      //                 mainAxisAlignment:
+                      //                     MainAxisAlignment.spaceBetween,
+                      //                 children: [
+                      //                   Padding(
+                      //                     padding:
+                      //                         const EdgeInsets.only(left: 20),
+                      //                     child: Row(
+                      //                       children: [
+                      //                         SvgPicture.asset(
+                      //                             IconsSvg.iconCalendar),
+                      //                         Padding(
+                      //                           padding: const EdgeInsets.only(
+                      //                               left: 5),
+                      //                           child: Text(
+                      //                             tasks[index]
+                      //                                 .datatime
+                      //                                 .toString(),
+                      //                           ),
+                      //                         ),
+                      //                       ],
+                      //                     ),
+                      //                   ),
+                      //                   Row(
+                      //                     children: [
+                      //                       SvgPicture.asset(IconsSvg.iconTime),
+                      //                       Padding(
+                      //                         padding: const EdgeInsets.only(
+                      //                             left: 5),
+                      //                         child: Text(
+                      //                           tasks[index].time.toString(),
+                      //                         ),
+                      //                       ),
+                      //                     ],
+                      //                   ),
+                      //                   IconButton(
+                      //                     onPressed: () {
+                      //                       Get.toNamed(
+                      //                         '/edit',
+                      //                         arguments: tasks[index],
+                      //                       );
+                      //                     },
+                      //                     icon: Icon(Icons.more_vert_rounded),
+                      //                     color: Colors.purple,
+                      //                   )
+                      //                 ],
+                      //               ),
+                      //             ),
+                      //             Container(
+                      //               margin: EdgeInsets.symmetric(horizontal: 15)
+                      //                   .copyWith(top: 0),
+                      //               decoration: BoxDecoration(
+                      //                   borderRadius: BorderRadius.circular(20),
+                      //                   border: Border.all(
+                      //                       color: Colors.purpleAccent,
+                      //                       width: 2)),
+                      //               child: ItemForm(
+                      //                 initialValue: tasks[index].title,
+                      //                 enabled: false,
+                      //                 icons: IconsSvg.iconTitle,
+                      //                 label: "Titulo",
+                      //               ),
+                      //             ),
+                      //             Container(
+                      //               margin: EdgeInsets.symmetric(
+                      //                   horizontal: 15, vertical: 10),
+                      //               decoration: BoxDecoration(
+                      //                   borderRadius: BorderRadius.circular(20),
+                      //                   border: Border.all(
+                      //                       color: Colors.purpleAccent,
+                      //                       width: 2)),
+                      //               child: ItemForm(
+                      //                 initialValue: tasks[index].description,
+                      //                 enabled: false,
+                      //                 label: "Description",
+                      //               ),
+                      //             ),
+                      //           ],
+                      //         ),
+                      //       ),
+                      //     );
+                      //   },
+                      // );
                     },
                     check: () => controller.UpdateValueTask(tasks[index]));
               },

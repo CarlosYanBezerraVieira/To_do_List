@@ -12,19 +12,19 @@ class EditTask extends GetView<EdiTaskController> {
 
   @override
   Widget build(BuildContext context) {
-    List title = ["Task title", "Date", "Time", "Description"];
+    List title = ["Titulo", "Data", "Hora", "Descrição"];
 
     return Scaffold(
       backgroundColor: Colors.white,
       body: Hero(
         transitionOnUserGestures: true,
         tag: controller.task,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 30),
+        child: ListView(
+          physics: BouncingScrollPhysics(),
+          children: [
+            Column(
+              children: [
+                Container(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -51,135 +51,120 @@ class EditTask extends GetView<EdiTaskController> {
                     ],
                   ),
                 ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 15)
-                    .copyWith(top: 30),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        title[0],
-                        style: GoogleFonts.nunito(
-                            textStyle: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        )),
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 15)
-                            .copyWith(top: 10, bottom: 10),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: Colors.purple, width: 2)),
-                        child: ItemForm(
-                          controller: controller.titleController,
-                          enabled: true,
-                          icons: IconsSvg.iconTitle,
-                          label: "Titulo",
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 15)
+                      .copyWith(top: 30),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title[0],
+                          style: GoogleFonts.nunito(
+                              textStyle: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          )),
                         ),
-                      ),
-                      Text(
-                        title[1],
-                        style: GoogleFonts.nunito(
-                            textStyle: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        )),
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 15)
-                            .copyWith(top: 10, bottom: 10),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: Colors.purple, width: 2)),
-                        child: ItemForm(
-                          controller: controller.datatimeController,
-                          enabled: true,
-                          icons: IconsSvg.iconCalendar,
-                          label: "Data",
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10, bottom: 10),
+                          child: ItemForm(
+                            controller: controller.titleController,
+                            enabled: true,
+                            icons: IconsSvg.iconTitle,
+                            label: "Titulo",
+                          ),
                         ),
-                      ),
-                      Text(
-                        title[2],
-                        style: GoogleFonts.nunito(
-                            textStyle: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        )),
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 15)
-                            .copyWith(top: 10, bottom: 10),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: Colors.purple, width: 2)),
-                        child: ItemForm(
-                          controller: controller.timeController,
-                          enabled: true,
-                          icons: IconsSvg.iconTime,
-                          label: "Time",
+                        Text(
+                          title[1],
+                          style: GoogleFonts.nunito(
+                              textStyle: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          )),
                         ),
-                      ),
-                      Text(
-                        title[3],
-                        style: GoogleFonts.nunito(
-                            textStyle: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        )),
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 15)
-                            .copyWith(top: 10, bottom: 10),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: Colors.purple, width: 2)),
-                        child: ItemForm(
-                          controller: controller.descriptionController,
-                          enabled: true,
-                          label: "Description",
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10, bottom: 10),
+                          child: ItemForm(
+                            controller: controller.datatimeController,
+                            enabled: true,
+                            icons: IconsSvg.iconCalendar,
+                            label: "Data",
+                          ),
                         ),
-                      ),
-                    ],
+                        Text(
+                          title[2],
+                          style: GoogleFonts.nunito(
+                              textStyle: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          )),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10, bottom: 10),
+                          child: ItemForm(
+                            controller: controller.timeController,
+                            enabled: true,
+                            icons: IconsSvg.iconTime,
+                            label: "Time",
+                          ),
+                        ),
+                        Text(
+                          title[3],
+                          style: GoogleFonts.nunito(
+                              textStyle: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          )),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10, bottom: 10),
+                          child: ItemForm(
+                            controller: controller.descriptionController,
+                            enabled: true,
+                            label: "Description",
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                child: InkWell(
-                  onTap: () {
-                    controller.updateTask();
-                    Get.back();
-                  },
-                  child: Ink(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        gradient: LinearGradient(
-                          colors: [
-                            Color(0xff7F00FF),
-                            Color(0xffE100FF),
-                          ],
-                        )),
-                    height: 76,
-                    width: 315,
-                    child: Center(
-                      child: Text(
-                        "Save",
-                        style: GoogleFonts.nunito(
-                            textStyle: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        )),
+                Padding(
+                  padding: const EdgeInsets.only(top: 60),
+                  child: InkWell(
+                    onTap: () {
+                      controller.updateTask();
+                      Get.back();
+                    },
+                    child: Ink(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xff7F00FF),
+                              Color(0xffE100FF),
+                            ],
+                          )),
+                      height: 76,
+                      width: 315,
+                      child: Center(
+                        child: Text(
+                          "Save",
+                          style: GoogleFonts.nunito(
+                              textStyle: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          )),
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
+              ],
+            ),
+          ],
         ),
       ),
     );

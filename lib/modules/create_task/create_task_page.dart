@@ -11,15 +11,12 @@ class CreateTaskPage extends GetView<CreateTaskController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        body: SingleChildScrollView(
+        body: ListView(
           physics: BouncingScrollPhysics(),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              HeaderCreateTask(),
-              BodyCreaTask(),
-            ],
-          ),
+          children: [
+            HeaderCreateTask(),
+            BodyCreaTask(),
+          ],
         ));
   }
 }
