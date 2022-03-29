@@ -1,8 +1,9 @@
+import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
 import 'package:to_do_list/models/taks_model.dart';
 import '../../repor/database_repositoty/database_repository.dart';
 
-class HomeController extends GetxController {
+class HomeController extends GetxController with SingleGetTickerProviderMixin {
   final DataRepository _dataRepository;
 
   HomeController({required DataRepository dataRepository})
@@ -11,7 +12,8 @@ class HomeController extends GetxController {
   final tasks = <TaskModel>[].obs;
   final tasksSelect = <TaskModel>[].obs;
   final tasksNotSelect = <TaskModel>[].obs;
-
+  final isSelected = false.obs;
+  late AnimationController animation;
   List<TaskModel> listNotSelect = [];
   List<TaskModel> listSelect = [];
 
@@ -21,8 +23,15 @@ class HomeController extends GetxController {
 
   @override
   Future<void> onInit() async {
+    animation =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
     getTasks();
     super.onInit();
+  }
+
+  toggleAnimation() {
+    isSelected.toggle();
+    print(isSelected);
   }
 
   Future<void> getTasks() async {
