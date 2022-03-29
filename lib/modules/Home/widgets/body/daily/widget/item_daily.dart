@@ -61,7 +61,7 @@ class ItemDaily extends StatelessWidget {
                           height: 10,
                         ),
                         Text(
-                          "06.00 AM",
+                          model.time != null ? model.time.toString() : '',
                           style: GoogleFonts.nunito(
                             textStyle: TextStyle(
                                 color: Colors.white,
