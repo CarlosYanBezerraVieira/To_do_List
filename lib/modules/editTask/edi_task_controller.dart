@@ -27,7 +27,7 @@ class EdiTaskController extends GetxController {
       timeController.text = task.time != null ? task.time.toString() : "";
       datatimeController.text =
           task.datatime != null ? task.datatime.toString() : "";
-      descriptionController.text = task.title ?? "";
+      descriptionController.text = task.description ?? "";
 
       //passar dados pros controlles
     } else {
