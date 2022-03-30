@@ -9,6 +9,7 @@ class HomeHeader extends StatelessWidget {
   final HomeController controller;
   @override
   Widget build(BuildContext context) {
+    final DateTime currentDate = DateTime.now();
     return Material(
       color: Colors.white,
       child: SizedBox(
@@ -24,7 +25,7 @@ class HomeHeader extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Thursday",
+                      Text(DateFormatt().getWeekDay(currentDate.weekday),
                           style: GoogleFonts.nunito(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
