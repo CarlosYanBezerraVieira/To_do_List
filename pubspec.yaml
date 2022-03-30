@@ -44,6 +44,7 @@ dependencies:
   intl: ^0.17.0
   flutter_localizations:
     sdk: flutter
+  mask_text_input_formatter: ^2.2.0
 
 dev_dependencies:
   flutter_test:

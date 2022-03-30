@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,7 +12,8 @@ class ItemForm extends StatelessWidget {
       this.controller,
       this.enabled = true,
       this.autofocus = false,
-      this.initialValue})
+      this.initialValue,
+      this.inputFormatters})
       : super(key: key);
   final String icons;
   final String label;
@@ -19,6 +21,7 @@ class ItemForm extends StatelessWidget {
   final int? maxLines;
   final bool enabled;
   final bool autofocus;
+  final List<TextInputFormatter>? inputFormatters;
   final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
@@ -27,6 +30,7 @@ class ItemForm extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(5),
         child: TextFormField(
+          inputFormatters: inputFormatters,
           initialValue: initialValue,
           textAlign: TextAlign.justify,
           autofocus: autofocus,

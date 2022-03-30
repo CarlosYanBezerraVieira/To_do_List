@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:to_do_list/Shared/values/icons_svg.dart';
+import 'package:to_do_list/Shared/values/mask_form.dart';
 import 'package:to_do_list/modules/create_task/create_task_controller.dart';
 import 'package:to_do_list/Shared/widget/item_form.dart';
 import '../../create_task_controller.dart';
@@ -50,6 +51,7 @@ class BodyCreaTask extends GetView<CreateTaskController> {
                 Padding(
                   padding: const EdgeInsets.only(top: 10, bottom: 10),
                   child: ItemForm(
+                    inputFormatters: [MaskForm().maskFormatterDateTime],
                     controller: controller.datatimeController,
                     icons: IconsSvg.iconCalendar,
                     label: label[1],
@@ -66,6 +68,7 @@ class BodyCreaTask extends GetView<CreateTaskController> {
                 Padding(
                   padding: const EdgeInsets.only(top: 10, bottom: 10),
                   child: ItemForm(
+                    inputFormatters: [MaskForm().maskFormatterTime],
                     maxLines: 1,
                     controller: controller.timeController,
                     icons: IconsSvg.iconTime,
