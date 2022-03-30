@@ -43,12 +43,8 @@ class EdiTaskController extends GetxController {
         _dataRepository.update(
             TaskModel(
               title: titleController.text,
-              datatime: timeController.text.isNotEmpty
-                  ? int.parse(datatimeController.text)
-                  : null,
-              time: timeController.text.isNotEmpty
-                  ? int.parse(timeController.text)
-                  : null,
+              datatime: datatimeController.text,
+              time: timeController.text,
               description: descriptionController.text,
               value: task.value,
             ),

@@ -13,7 +13,8 @@ class ItemForm extends StatelessWidget {
       this.enabled = true,
       this.autofocus = false,
       this.initialValue,
-      this.inputFormatters})
+      this.inputFormatters,
+      this.keyboardType})
       : super(key: key);
   final String icons;
   final String label;
@@ -23,6 +24,7 @@ class ItemForm extends StatelessWidget {
   final bool autofocus;
   final List<TextInputFormatter>? inputFormatters;
   final TextEditingController? controller;
+  final TextInputType? keyboardType;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,6 +32,7 @@ class ItemForm extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(5),
         child: TextFormField(
+          keyboardType: keyboardType,
           inputFormatters: inputFormatters,
           initialValue: initialValue,
           textAlign: TextAlign.justify,

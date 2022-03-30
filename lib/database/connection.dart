@@ -40,8 +40,8 @@ class Connection {
         create table Task(
           id Integer primary key autoincrement,
           title text,
-          datatime num,
-          time num,
+          datatime text,
+          time  text,
           description text,
           value integer
           ) 

@@ -29,12 +29,8 @@ class CreateTaskController extends GetxController {
   void newTask() {
     _dataRepository.doTask(TaskModel(
       title: titleController.text,
-      datatime: timeController.text.isNotEmpty
-          ? int.parse(datatimeController.text)
-          : null,
-      time: timeController.text.isNotEmpty
-          ? int.parse(timeController.text)
-          : null,
+      datatime: datatimeController.text,
+      time: timeController.text,
       description: descriptionController.text,
       value: 0,
     ));
