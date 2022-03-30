@@ -31,13 +31,29 @@ class ListTaskPage extends StatelessWidget {
                     onPressed: () {
                       Get.bottomSheet(
                         Container(
-                          padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(20)),
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20))),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
+                              Align(
+                                alignment: Alignment.center,
+                                child: Container(
+                                  width: 50,
+                                  height: 4,
+                                  margin:
+                                      const EdgeInsets.symmetric(vertical: 8),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: const Color(0xFFC4C4C4)),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 12,
+                              ),
                               Padding(
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 15),
@@ -185,7 +201,7 @@ class ListTaskPage extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
                                     border: Border.all(
-                                        color: Colors.grey, width: 2)),
+                                        color: Colors.purple, width: 2)),
                                 child: ItemForm(
                                   initialValue: tasks[index].title,
                                   enabled: false,
@@ -199,7 +215,7 @@ class ListTaskPage extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
                                     border: Border.all(
-                                        color: Colors.grey, width: 2)),
+                                        color: Colors.purple, width: 2)),
                                 child: ItemForm(
                                   initialValue: tasks[index].description,
                                   enabled: false,

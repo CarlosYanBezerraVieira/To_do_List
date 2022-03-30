@@ -49,13 +49,30 @@ class Daily extends StatelessWidget {
                             onPressed: () {
                               Get.bottomSheet(
                                 Container(
-                                  padding: EdgeInsets.all(5),
                                   decoration: BoxDecoration(
                                       color: Colors.white,
-                                      borderRadius: BorderRadius.circular(20)),
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(20),
+                                          topRight: Radius.circular(20))),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
+                                      Align(
+                                        alignment: Alignment.center,
+                                        child: Container(
+                                          width: 50,
+                                          height: 4,
+                                          margin: const EdgeInsets.symmetric(
+                                              vertical: 8),
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              color: const Color(0xFFC4C4C4)),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 12,
+                                      ),
                                       Padding(
                                         padding: const EdgeInsets.symmetric(
                                             vertical: 15),
@@ -63,41 +80,49 @@ class Daily extends StatelessWidget {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 20),
+                                            Visibility(
+                                              visible:
+                                                  tasks[index].datatime != null,
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 20),
+                                                child: Row(
+                                                  children: [
+                                                    SvgPicture.asset(
+                                                        IconsSvg.iconCalendar),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 5),
+                                                      child: Text(
+                                                        tasks[index]
+                                                            .datatime
+                                                            .toString(),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                            Visibility(
+                                              visible:
+                                                  tasks[index].time != null,
                                               child: Row(
                                                 children: [
                                                   SvgPicture.asset(
-                                                      IconsSvg.iconCalendar),
+                                                      IconsSvg.iconTime),
                                                   Padding(
                                                     padding:
                                                         const EdgeInsets.only(
                                                             left: 5),
                                                     child: Text(
                                                       tasks[index]
-                                                          .datatime
+                                                          .time
                                                           .toString(),
                                                     ),
                                                   ),
                                                 ],
                                               ),
-                                            ),
-                                            Row(
-                                              children: [
-                                                SvgPicture.asset(
-                                                    IconsSvg.iconTime),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          left: 5),
-                                                  child: Text(
-                                                    tasks[index]
-                                                        .time
-                                                        .toString(),
-                                                  ),
-                                                ),
-                                              ],
                                             ),
                                             Padding(
                                               padding: const EdgeInsets.only(
