@@ -81,8 +81,9 @@ class Daily extends StatelessWidget {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Visibility(
-                                              visible:
-                                                  tasks[index].datatime != null,
+                                              visible: tasks[index]
+                                                  .datatime!
+                                                  .isNotEmpty,
                                               child: Padding(
                                                 padding: const EdgeInsets.only(
                                                     left: 20),
@@ -106,7 +107,7 @@ class Daily extends StatelessWidget {
                                             ),
                                             Visibility(
                                               visible:
-                                                  tasks[index].time != null,
+                                                  tasks[index].time!.isNotEmpty,
                                               child: Row(
                                                 children: [
                                                   SvgPicture.asset(
@@ -176,13 +177,15 @@ class Daily extends StatelessWidget {
                                                           child: controller
                                                                   .isSelected
                                                                   .value
-                                                              ? const Icon(
-                                                                  Icons.delete,
-                                                                  color: Colors
-                                                                      .purple,
+                                                              ? SizedBox(
+                                                                  child:
+                                                                      SvgPicture
+                                                                          .asset(
+                                                                  IconsSvg
+                                                                      .iconDelete,
                                                                   key: ValueKey(
                                                                       'IconA'),
-                                                                )
+                                                                ))
                                                               : null,
                                                           transitionBuilder:
                                                               (Widget child,
@@ -206,18 +209,21 @@ class Daily extends StatelessWidget {
                                                           child: controller
                                                                   .isSelected
                                                                   .value
-                                                              ? const Icon(
-                                                                  Icons.close,
-                                                                  color: Colors
-                                                                      .purple,
+                                                              ? SizedBox(
+                                                                  child:
+                                                                      SvgPicture
+                                                                          .asset(
+                                                                  IconsSvg
+                                                                      .iconClose,
                                                                   key: ValueKey(
                                                                       'IconA'),
-                                                                )
+                                                                ))
                                                               : const Icon(
                                                                   Icons
                                                                       .more_vert_rounded,
                                                                   color: Colors
                                                                       .purple,
+                                                                  size: 30,
                                                                   key: ValueKey(
                                                                       'IconB'),
                                                                 ),
