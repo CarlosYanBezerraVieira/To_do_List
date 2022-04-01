@@ -5,5 +5,4 @@ class IconsSvg {
   static const iconDelete = "assets/images/icon/svg_icons/delete.svg";
   static const iconEdit = "assets/images/icon/svg_icons/edit.svg";
   static const iconClose = "assets/images/icon/svg_icons/close.svg";
-  static const iconMore = "assets/images/icon/svg_icons/more.svg";
 }
