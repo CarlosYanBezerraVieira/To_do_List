@@ -29,7 +29,8 @@ class MyApp extends StatelessWidget {
       ],
       title: 'To do List',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
+        textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.grey),
       ),
       initialBinding: ApplicationBindings(),
       getPages: [
