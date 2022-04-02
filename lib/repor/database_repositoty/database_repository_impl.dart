@@ -20,8 +20,8 @@ class DataRepositoryImpl implements DataRepository {
         create table Task(
           id Integer primary key autoincrement,
           title text,
-          datatime num,
-          time num,
+          datatime INTEGER,
+          time INTEGER,
           description text,
           value integer
           ) 

@@ -3,8 +3,8 @@ import 'dart:convert';
 class TaskModel {
   final int? id;
   final String? title;
-  final String? datatime;
-  final String? time;
+  final int? datatime;
+  final int? time;
   final String? description;
   final int value;
   TaskModel({
@@ -42,8 +42,8 @@ class TaskModel {
     return TaskModel(
       id: map['id']?.toInt(),
       title: map['title'],
-      datatime: map['datatime'],
-      time: map['time'],
+      datatime: int.parse(map['datatime']),
+      time: int.parse(map['time']),
       description: map['description'],
       value: map['value']?.toInt() ?? 0,
     );
