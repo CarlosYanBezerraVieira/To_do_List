@@ -34,7 +34,6 @@ class Connection {
   }
 
   FutureOr<void> _onCreate(Database db, int version) {
-    print("banco criado");
     final batch = db.batch();
     batch.execute('''
         create table Task(

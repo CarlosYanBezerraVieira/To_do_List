@@ -10,11 +10,9 @@ class DataRepositoryImpl implements DataRepository {
   Future<Database> openConnnection() async {
     final databasePath = await getDatabasesPath();
     final databasePathFinal = join(databasePath, "SQLITE_TASKS");
-    print(databasePathFinal);
     return openDatabase(databasePathFinal, version: 1, onConfigure: (db) async {
       await db.execute('PRAGMA forein_keys = ON');
     }, onCreate: (Database db, int version) {
-      print("banco criado");
       final batch = db.batch();
       batch.execute('''
         create table Task(

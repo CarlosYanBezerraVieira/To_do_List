@@ -29,7 +29,7 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
     super.onInit();
   }
 
-  toggleAnimation() {
+  void toggleAnimation() {
     isSelected.toggle();
     print(isSelected);
   }
