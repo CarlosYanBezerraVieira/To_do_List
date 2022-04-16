@@ -37,4 +37,17 @@ class DateFormatt {
         return 'Dia inválido';
     }
   }
+
+  String convertMonthFromSeconds(int seconds) {
+    var clock = DateTime.fromMillisecondsSinceEpoch(seconds);
+    String date =
+        DateFormat(DateFormat.YEAR_NUM_MONTH_DAY, "pt_Br").format(clock);
+    return date;
+  }
+
+  String convertHourFromSeconds(int seconds) {
+    final clock = DateTime.fromMillisecondsSinceEpoch(seconds);
+    String date = DateFormat(DateFormat.HOUR24_MINUTE, "pt_Br").format(clock);
+    return date;
+  }
 }
