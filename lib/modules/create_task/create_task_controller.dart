@@ -12,7 +12,8 @@ class CreateTaskController extends GetxController {
   final datatimeController = TextEditingController(text: '');
   final descriptionController = TextEditingController(text: '');
   final tasks = <TaskModel>[].obs;
-
+  DateTime date = DateTime.now();
+  DateTime hour = DateTime.now();
   CreateTaskController(
       {required HomeController homeController,
       required DataRepository dataRepository})
@@ -27,12 +28,44 @@ class CreateTaskController extends GetxController {
   }
 
   void newTask() {
+ 
     _dataRepository.doTask(TaskModel(
       title: titleController.text,
-      datatime: datatimeController.text,
-      time: timeController.text,
+      datatime: converteMonthToSeconds(),
+      time: converteHourToSeconds(),
       description: descriptionController.text,
       value: 0,
     ));
+  }
+
+  int converteHourToSeconds() {
+    final timeString = timeController.text;
+    if (timeString != "") {
+      List<String> timeSplit = timeString.split(':');
+      var clock = int.tryParse(timeSplit[0]);
+      var minute = int.tryParse(timeSplit[1]);
+      var dateWithoutTime = DateTime(date.year, date.month, date.day);
+      if (clock != null && minute != null) {
+        clock = clock * 60 * 60 * 1000;
+        minute = minute * 60 * 1000;
+        var clockTotalinSeconds =
+            (clock + minute + dateWithoutTime.millisecondsSinceEpoch);
+
+        return clockTotalinSeconds;
+      }
+    }
+
+    return hour.millisecondsSinceEpoch;
+  }
+
+  int converteMonthToSeconds() {
+    final dateString = datatimeController.text;
+
+    if (dateString != '') {
+      return DateTime.parse(dateString).millisecondsSinceEpoch;
+    }
+    ;
+
+    return date.millisecondsSinceEpoch;
   }
 }
