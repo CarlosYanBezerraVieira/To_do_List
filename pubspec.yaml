@@ -45,6 +45,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   mask_text_input_formatter: ^2.2.0
+  date_time_picker: ^2.1.0
 
 dev_dependencies:
   flutter_test:
