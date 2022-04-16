@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../../../Shared/values/date_formatt.dart';
 import '../../../../../../models/taks_model.dart';
 
 class ItemDaily extends StatelessWidget {
@@ -61,7 +62,10 @@ class ItemDaily extends StatelessWidget {
                           height: 10,
                         ),
                         Text(
-                          model.time != null ? model.time.toString() : '',
+                          model.time != null
+                              ? DateFormatt()
+                                  .convertHourFromSeconds(model.time ?? 0)
+                              : '',
                           style: GoogleFonts.nunito(
                             textStyle: TextStyle(
                                 color: Colors.white,
