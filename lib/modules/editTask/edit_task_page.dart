@@ -1,6 +1,9 @@
+import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:to_do_list/Shared/widget/date_picker_widget.dart';
 import 'package:to_do_list/modules/editTask/edi_task_controller.dart';
 import '../../../../Shared/values/icons_svg.dart';
 import '../../../../Shared/widget/item_form.dart';
@@ -86,11 +89,15 @@ class EditTask extends GetView<EdiTaskController> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 10, bottom: 10),
-                          child: ItemForm(
-                            controller: controller.datatimeController,
-                            enabled: true,
-                            icons: IconsSvg.iconCalendar,
-                            label: "Data",
+                          child: DatePickerWidget(
+                            controller: controller.newdatatimeController,
+                            dateTimePickerType: DateTimePickerType.date,
+                            typeEntry: DatePickerEntryMode.calendar,
+                            icon: SizedBox(
+                              width: 24,
+                              height: 24,
+                              child: SvgPicture.asset(IconsSvg.iconCalendar),
+                            ),
                           ),
                         ),
                         Text(
@@ -102,12 +109,16 @@ class EditTask extends GetView<EdiTaskController> {
                           )),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 10, bottom: 10),
-                          child: ItemForm(
-                            controller: controller.timeController,
-                            enabled: true,
-                            icons: IconsSvg.iconTime,
-                            label: "Time",
+                          padding: const EdgeInsets.only(top: 10, bottom: 20),
+                          child: DatePickerWidget(
+                            controller: controller.newtimeController,
+                            initialTime: controller.convertHourFromDb(),
+                            icon: SizedBox(
+                              width: 24,
+                              height: 24,
+                              child: SvgPicture.asset(IconsSvg.iconTime),
+                            ),
+                            dateTimePickerType: DateTimePickerType.time,
                           ),
                         ),
                         Text(
@@ -123,7 +134,7 @@ class EditTask extends GetView<EdiTaskController> {
                           child: ItemForm(
                             controller: controller.descriptionController,
                             enabled: true,
-                            label: "Description",
+                            label: "Descrição",
                           ),
                         ),
                       ],
