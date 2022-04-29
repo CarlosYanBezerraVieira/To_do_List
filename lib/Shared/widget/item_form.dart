@@ -35,7 +35,6 @@ class ItemForm extends StatelessWidget {
           keyboardType: keyboardType,
           inputFormatters: inputFormatters,
           initialValue: initialValue,
-          textAlign: TextAlign.justify,
           autofocus: autofocus,
           cursorColor: Colors.grey,
           maxLines: maxLines,

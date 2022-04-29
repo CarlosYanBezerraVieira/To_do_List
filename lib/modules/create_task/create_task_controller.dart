@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:to_do_list/models/taks_model.dart';
 import 'package:to_do_list/modules/Home/home_controller.dart';
@@ -27,8 +27,13 @@ class CreateTaskController extends GetxController {
     super.onClose();
   }
 
+  @override
+  void onInit() {
+    initDates();
+    super.onInit();
+  }
+
   void newTask() {
- 
     _dataRepository.doTask(TaskModel(
       title: titleController.text,
       datatime: converteMonthToSeconds(),
@@ -67,5 +72,11 @@ class CreateTaskController extends GetxController {
     ;
 
     return date.millisecondsSinceEpoch;
+  }
+
+  initDates() {
+    print(timeController.text = TimeOfDay.now().toString());
+    timeController.text = TimeOfDay.now().toString();
+    datatimeController.text = DateTime.now().toString();
   }
 }
