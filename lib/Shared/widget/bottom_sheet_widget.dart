@@ -74,6 +74,7 @@ class BottomSheetWidget {
                           children: [
                             IconButton(
                               onPressed: () {
+                                Get.back();
                                 Get.toNamed(
                                   '/edit',
                                   arguments: model,
