@@ -18,8 +18,9 @@ class Daily extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Material(
+                borderRadius: BorderRadius.circular(10),
                 color: Colors.transparent,
-                elevation: 10,
+                elevation: 8,
                 child: Container(
                   height: Get.height * controller.size.value,
                   width: Get.width * 0.87,
@@ -44,11 +45,12 @@ class Daily extends StatelessWidget {
                         onTap: onPressed,
                         child: ItemDaily(
                             model: tasks[index],
-                            onPressed: () {
-                              BottomSheetWidget().showBottomSheet(
+                            onPressed: () async {
+                              await BottomSheetWidget().showBottomSheet(
                                 model: tasks[index],
                                 controller: controller,
                               );
+                              controller.isSelected.value = false;
                             },
                             check: () =>
                                 controller.UpdateValueTask(tasks[index])),

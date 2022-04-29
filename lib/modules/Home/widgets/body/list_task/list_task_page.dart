@@ -16,6 +16,7 @@ class ListTaskPage extends StatelessWidget {
   Widget build(BuildContext context) {
     List<TaskModel> tasks = controller.tasksNotSelect;
     return Material(
+      color: Colors.white,
       child: Obx(() => Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 30).copyWith(top: 30),
@@ -26,11 +27,12 @@ class ListTaskPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 return ItemTask(
                     model: tasks[index],
-                    onPressed: () {
-                      BottomSheetWidget().showBottomSheet(
+                    onPressed: () async {
+                      await BottomSheetWidget().showBottomSheet(
                         model: tasks[index],
                         controller: controller,
                       );
+                      controller.isSelected.value = false;
                     },
                     check: () => controller.UpdateValueTask(tasks[index]));
               },

@@ -1,7 +1,6 @@
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:to_do_list/Shared/values/mask_form.dart';
 
 class DatePickerWidget extends StatelessWidget {
   final Widget icon;
@@ -28,6 +27,7 @@ class DatePickerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return DateTimePicker(
       decoration: InputDecoration(
+          fillColor: Colors.white,
           filled: true,
           floatingLabelStyle: GoogleFonts.nunito(color: Colors.black),
           icon: Padding(
@@ -41,13 +41,13 @@ class DatePickerWidget extends StatelessWidget {
       use24HourFormat: true,
       controller: controller,
       locale: Locale("pt", "BR"),
-      initialDate: DateTime(2022, 04, 30),
+      initialDate: DateTime.now(),
       initialEntryMode: typeEntry,
       timePickerEntryModeInput: timePickerEntryModeInput,
       dateMask: 'dd/MM/yyyy',
       type: dateTimePickerType,
-      firstDate: DateTime.now(),
-      lastDate: DateTime(2110),
+      firstDate: DateTime(DateTime.now().year),
+      lastDate: DateTime(DateTime.now().year + 15),
       initialTime: initialTime ?? TimeOfDay.now(),
       selectableDayPredicate: selectableDayPredicate,
       validator: (validator) {

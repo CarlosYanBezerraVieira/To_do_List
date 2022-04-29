@@ -31,7 +31,6 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
 
   void toggleAnimation() {
     isSelected.toggle();
-    print(isSelected);
   }
 
   Future<void> getTasks() async {
