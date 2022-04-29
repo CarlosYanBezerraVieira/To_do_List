@@ -87,7 +87,7 @@ class EdiTaskController extends GetxController {
   }
 
   int converteHourToSeconds() {
-    final timeString = timeController.text;
+    final timeString = newtimeController.text;
     if (timeString != "") {
       List<String> timeSplit = timeString.split(':');
       var clock = int.tryParse(timeSplit[0]);
@@ -107,7 +107,7 @@ class EdiTaskController extends GetxController {
   }
 
   int converteMonthToSeconds() {
-    final dateString = datatimeController.text;
+    final dateString = newdatatimeController.text;
 
     if (dateString != '') {
       return DateTime.parse(dateString).millisecondsSinceEpoch;
