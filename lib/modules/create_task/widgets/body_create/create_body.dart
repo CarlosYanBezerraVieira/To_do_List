@@ -18,120 +18,82 @@ class BodyCreaTask extends GetView<CreateTaskController> {
     List title = ["Titulo", "Data", "Hora", "Descrição"];
     return Container(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15).copyWith(
-          top: 30,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 15).copyWith(top: 30),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title[0],
-                  style: GoogleFonts.nunito(
-                      textStyle: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  )),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, bottom: 10),
-                  child: ItemForm(
-                    controller: controller.titleController,
-                    icons: IconsSvg.iconTitle,
-                    label: label[0],
-                  ),
-                ),
-                Text(
-                  title[1],
-                  style: GoogleFonts.nunito(
-                      textStyle: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  )),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, bottom: 10),
-                  child: DatePickerWidget(
-                    controller: controller.datatimeController,
-                    dateTimePickerType: DateTimePickerType.date,
-                    typeEntry: DatePickerEntryMode.calendar,
-                    icon: SizedBox(
-                      width: 24,
-                      height: 24,
-                      child: SvgPicture.asset(IconsSvg.iconCalendar),
-                    ),
-                  ),
-                ),
-                Text(
-                  title[2],
-                  style: GoogleFonts.nunito(
-                      textStyle: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  )),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, bottom: 20),
-                  child: DatePickerWidget(
-                    controller: controller.timeController,
-                    icon: SizedBox(
-                      width: 24,
-                      height: 24,
-                      child: SvgPicture.asset(IconsSvg.iconTime),
-                    ),
-                    dateTimePickerType: DateTimePickerType.time,
-                  ),
-                ),
-                Text(
-                  title[3],
-                  style: GoogleFonts.nunito(
-                      textStyle: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  )),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    top: 10,
-                  ),
-                  child: ItemForm(
-                    controller: controller.descriptionController,
-                    label: label[3],
-                  ),
-                ),
-              ],
+            Text(
+              title[0],
+              style: GoogleFonts.nunito(
+                  textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              )),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 60),
-              child: InkWell(
-                onTap: () {
-                  controller.newTask();
-                  Get.back();
-                },
-                child: Ink(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      gradient: LinearGradient(
-                        colors: [
-                          Color(0xff7F00FF),
-                          Color(0xffE100FF),
-                        ],
-                      )),
-                  height: 76,
-                  width: 315,
-                  child: Center(
-                    child: Text(
-                      "Create task",
-                      style: GoogleFonts.nunito(
-                          textStyle: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      )),
-                    ),
-                  ),
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: ItemForm(
+                controller: controller.titleController,
+                icons: IconsSvg.iconTitle,
+                label: label[0],
+              ),
+            ),
+            Text(
+              title[1],
+              style: GoogleFonts.nunito(
+                  textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              )),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: DatePickerWidget(
+                controller: controller.datatimeController,
+                dateTimePickerType: DateTimePickerType.date,
+                typeEntry: DatePickerEntryMode.calendar,
+                icon: SizedBox(
+                  width: 24,
+                  height: 24,
+                  child: SvgPicture.asset(IconsSvg.iconCalendar),
                 ),
+              ),
+            ),
+            Text(
+              title[2],
+              style: GoogleFonts.nunito(
+                  textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              )),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 20),
+              child: DatePickerWidget(
+                controller: controller.timeController,
+                icon: SizedBox(
+                  width: 24,
+                  height: 24,
+                  child: SvgPicture.asset(IconsSvg.iconTime),
+                ),
+                dateTimePickerType: DateTimePickerType.time,
+              ),
+            ),
+            Text(
+              title[3],
+              style: GoogleFonts.nunito(
+                  textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              )),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 10,
+              ),
+              child: ItemForm(
+                controller: controller.descriptionController,
+                label: label[3],
               ),
             ),
           ],

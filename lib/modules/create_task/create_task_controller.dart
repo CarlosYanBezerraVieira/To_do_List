@@ -75,7 +75,6 @@ class CreateTaskController extends GetxController {
   }
 
   initDates() {
-    print(timeController.text = TimeOfDay.now().toString());
     timeController.text = TimeOfDay.now().toString();
     datatimeController.text = DateTime.now().toString();
   }

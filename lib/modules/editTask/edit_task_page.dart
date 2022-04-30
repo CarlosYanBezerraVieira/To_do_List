@@ -19,163 +19,166 @@ class EditTask extends GetView<EdiTaskController> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Hero(
-        transitionOnUserGestures: true,
-        tag: controller.task,
-        child: ListView(
-          physics: BouncingScrollPhysics(),
-          children: [
-            Column(
-              children: [
-                Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          IconButton(
-                              onPressed: () => Get.back(),
-                              icon: Icon(Icons.chevron_left)),
-                          Text("Editar",
+      body: SingleChildScrollView(
+        child: Container(
+          height: Get.height,
+          child: Stack(
+            children: [
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 40),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            IconButton(
+                                onPressed: () => Get.back(),
+                                icon: Icon(Icons.chevron_left)),
+                            Text("Editar",
+                                style: GoogleFonts.nunito(
+                                    textStyle:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                    fontSize: 24)),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 50),
+                          child: Text("Tarefa",
                               style: GoogleFonts.nunito(
                                   textStyle:
                                       TextStyle(fontWeight: FontWeight.bold),
                                   fontSize: 24)),
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 50),
-                        child: Text("Tarefa",
-                            style: GoogleFonts.nunito(
-                                textStyle:
-                                    TextStyle(fontWeight: FontWeight.bold),
-                                fontSize: 24)),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 15)
-                      .copyWith(top: 30),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          title[0],
-                          style: GoogleFonts.nunito(
-                              textStyle: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          )),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10, bottom: 10),
-                          child: ItemForm(
-                            controller: controller.titleController,
-                            enabled: true,
-                            icons: IconsSvg.iconTitle,
-                            label: "Titulo",
-                          ),
-                        ),
-                        Text(
-                          title[1],
-                          style: GoogleFonts.nunito(
-                              textStyle: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          )),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10, bottom: 10),
-                          child: DatePickerWidget(
-                            controller: controller.newdatatimeController,
-                            dateTimePickerType: DateTimePickerType.date,
-                            typeEntry: DatePickerEntryMode.calendar,
-                            icon: SizedBox(
-                              width: 24,
-                              height: 24,
-                              child: SvgPicture.asset(IconsSvg.iconCalendar),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          title[2],
-                          style: GoogleFonts.nunito(
-                              textStyle: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          )),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10, bottom: 20),
-                          child: DatePickerWidget(
-                            controller: controller.newtimeController,
-                            initialTime: controller.convertHourFromDb(),
-                            icon: SizedBox(
-                              width: 24,
-                              height: 24,
-                              child: SvgPicture.asset(IconsSvg.iconTime),
-                            ),
-                            dateTimePickerType: DateTimePickerType.time,
-                          ),
-                        ),
-                        Text(
-                          title[3],
-                          style: GoogleFonts.nunito(
-                              textStyle: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          )),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10, bottom: 10),
-                          child: ItemForm(
-                            controller: controller.descriptionController,
-                            enabled: true,
-                            label: "Descrição",
-                          ),
                         ),
                       ],
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 60),
-                  child: InkWell(
-                    onTap: () {
-                      controller.updateTask();
-                      Get.back();
-                    },
-                    child: Ink(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          gradient: LinearGradient(
-                            colors: [
-                              Color(0xff7F00FF),
-                              Color(0xffE100FF),
-                            ],
-                          )),
-                      height: 76,
-                      width: 315,
-                      child: Center(
-                        child: Text(
-                          "Save",
-                          style: GoogleFonts.nunito(
-                              textStyle: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          )),
-                        ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 15)
+                        .copyWith(top: 30),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            title[0],
+                            style: GoogleFonts.nunito(
+                                textStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            )),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 10, bottom: 10),
+                            child: ItemForm(
+                              controller: controller.titleController,
+                              enabled: true,
+                              icons: IconsSvg.iconTitle,
+                              label: "Titulo",
+                            ),
+                          ),
+                          Text(
+                            title[1],
+                            style: GoogleFonts.nunito(
+                                textStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            )),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 10, bottom: 10),
+                            child: DatePickerWidget(
+                              controller: controller.newdatatimeController,
+                              dateTimePickerType: DateTimePickerType.date,
+                              typeEntry: DatePickerEntryMode.calendar,
+                              icon: SizedBox(
+                                width: 24,
+                                height: 24,
+                                child: SvgPicture.asset(IconsSvg.iconCalendar),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            title[2],
+                            style: GoogleFonts.nunito(
+                                textStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            )),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 10, bottom: 20),
+                            child: DatePickerWidget(
+                              controller: controller.newtimeController,
+                              initialTime: controller.convertHourFromDb(),
+                              icon: SizedBox(
+                                width: 24,
+                                height: 24,
+                                child: SvgPicture.asset(IconsSvg.iconTime),
+                              ),
+                              dateTimePickerType: DateTimePickerType.time,
+                            ),
+                          ),
+                          Text(
+                            title[3],
+                            style: GoogleFonts.nunito(
+                                textStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            )),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 10, bottom: 10),
+                            child: ItemForm(
+                              controller: controller.descriptionController,
+                              enabled: true,
+                              label: "Descrição",
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Positioned(
+                right: 25,
+                left: 25,
+                bottom: 30,
+                child: InkWell(
+                  onTap: () {
+                    controller.updateTask();
+                    Get.back();
+                  },
+                  child: Ink(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xff7F00FF),
+                            Color(0xffE100FF),
+                          ],
+                        )),
+                    height: 76,
+                    width: 315,
+                    child: Center(
+                      child: Text(
+                        "Salvar",
+                        style: GoogleFonts.nunito(
+                            textStyle: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        )),
                       ),
                     ),
                   ),
                 ),
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );
