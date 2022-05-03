@@ -107,10 +107,12 @@ class EdiTaskController extends GetxController {
   }
 
   int converteMonthToSeconds() {
-    final dateString = newdatatimeController.text;
+    final dateString = newdatatimeController.text.split("-");
 
     if (dateString != '') {
-      return DateTime.parse(dateString).millisecondsSinceEpoch;
+      return DateTime(int.parse(dateString[0]), int.parse(dateString[1]),
+              int.parse(dateString[2]))
+          .millisecondsSinceEpoch;
     }
     ;
 
@@ -126,6 +128,9 @@ class EdiTaskController extends GetxController {
     final listDates = dateFormat.split("/");
     if (int.parse(listDates[0]) < 10) {
       listDates[0] = "0" + listDates[0];
+    }
+    if (int.parse(listDates[1]) < 10) {
+      listDates[1] = "0" + listDates[1];
     }
     final dateReplace = "${listDates[2]}-${listDates[0]}-${listDates[1]}";
 
