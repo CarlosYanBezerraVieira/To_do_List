@@ -1,8 +1,8 @@
 # README
 
-<center>
+<p1 align ="center">
 <img src="assets\images\splash.png" />
-</center>
+</p1>
 
 
 
@@ -43,11 +43,12 @@
 # Demostração
 
 <h1 align="center">
-<imag alt ="Readme" title ="Readme" src="./github/1.png" />
+<!-- <img src="assets\images\splash.png" /> -->
 </h1>
 
 # Sobre
 
+# Instalação
 # Download of Apk
 
 
