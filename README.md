@@ -19,8 +19,9 @@
 </center>
 
 # Sobre
+<h4>É um app para facilitar seu dia a dia, guarda aqueles lembretes que você sempre esquece de forma fácil e pratica.</h4>
+- Foi criado com o intuito principal de aprimorar meus conhecimento em Flutter e aprender a como usar a biblioteca Getx para, gerenciamento de estado, dependências e de rotas, além de estudar como se dá o armazenamento de dados em um banco de dados local em um dispositivo móvel.
 
-<h3>É um app para facilitar seu dia a dia, guarda aqueles lembretes que você sempre esquece de forma fácil e pratica.</h3>
 
 
 ### Features
@@ -50,8 +51,6 @@
 <img src="assets\gif\gif_github.gif" />
 </h1>
 
-# Sobre
-O To do List é um aplicativo de lista de tarefas simples e intuitivo, foi criado com o intuito de aprimorar meus conhecimento em Flutter e aprender a como usar a biblioteca Getx para, gerenciamento de estado, dependências e de rotas, além de estudar como se dá o armazenamento de dados em um banco de dados local em um dispositivo móvel.
 
 # Instalação
 ### Download of Apk
