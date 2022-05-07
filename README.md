@@ -43,7 +43,7 @@
 # Demostração
 
 <h1 align="center">
-<!-- <img src="assets\images\splash.png" /> -->
+<img src="assets\gif\gif.gif" />
 </h1>
 
 # Sobre
