@@ -69,7 +69,7 @@
    - O FrameWork Flutter instalado, você pode encontrar como fazer isso aqui --> <a href = "https://flutter.dev/">Flutter</a>
    - A linguagem Dart instalada no seu editor de código, no meu caso eu uso o Visual Studio Code, então explicarei por ele.
       - Caso não o tenha ainda basta baixar aqui: <a href = "https://code.visualstudio.com/">Visual Studio Code</a>
-      - Depois de instalar, abri o programa e ir até extensões e procurar por Dart, aparecerá como primeira opção, basta clicar em install.
+      - Depois de instalar, e abrir o programa, basta ir até extensões e procurar por Dart, aparecerá como primeira opção a linguagem, basta clicar em install, e será baixado e instalado automaticamente.
       - No do Visual Studio Code, também será necessário baixar a extensão do Flutter, que se procede da mesma maneira citada acima.
       
 
