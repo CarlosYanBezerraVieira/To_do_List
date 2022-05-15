@@ -61,7 +61,15 @@
 - Clicar no nesse link =>  <a href = "https://www.mediafire.com/file/vslf9y0fe58v7i3/TodoList.apk/file">Aplicativo</a>
 - Ativar a opção de fontes desconhecidas no seu aparelho quando for instalar, pois como não é um aplicativo da Google Play Store, será necessário, porém pode fica tranquilo que o app livre de vírus e propagandas.
 
-
+### Download of Git
+ - Para fazer o clone desse repositório, e executa-lo no seu computador você precisará ter:
+   
+   - O FrameWork Flutter instalado, você pode encontrar como fazer isso aqui --> <a href = "https://flutter.dev/">Flutter</a>
+   - A linguagem Dart instalada no seu editor de código, no meu caso eu uso o Visual Studio Code, então explicarei por ele.
+      - Caso não o tenha ainda basta baixar aqui: <a href = "https://code.visualstudio.com/">Visual Studio Code</a>
+      - Depois de instalar, abri o programa e ir até extensões e procurar por Dart, aparecerá como primeira opção, basta clicar em install.
+      - No do Visual Studio Code, também será necessário baixar a extensão do Flutter, que se procede da mesma maneira citada acima.
+      
 
 
 
