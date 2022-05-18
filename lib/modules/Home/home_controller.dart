@@ -68,7 +68,7 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
     tasksNotSelect.assignAll(listNotSelect);
     tasksSelect.assignAll(listSelect);
     sizeTaskSelect.value = tasksSelect.length;
-    size.value = tasksSelect.length * 0.115;
+    size.value = tasksSelect.length * 1;
     listNotSelect = [];
     listSelect = [];
   }

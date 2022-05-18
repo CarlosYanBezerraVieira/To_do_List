@@ -22,7 +22,7 @@ class Daily extends StatelessWidget {
                 color: Colors.transparent,
                 elevation: 8,
                 child: Container(
-                  height: Get.height * controller.size.value,
+                  height: 90 * controller.size.value,
                   width: Get.width * 0.87,
                   decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
