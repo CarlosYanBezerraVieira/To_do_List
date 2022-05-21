@@ -34,7 +34,10 @@ class EditTask extends GetView<EdiTaskController> {
                         Row(
                           children: [
                             IconButton(
-                                onPressed: () => Get.back(),
+                                onPressed: () {
+                                  controller.updateTask();
+                                  Get.back();
+                                },
                                 icon: Icon(Icons.chevron_left)),
                             Text("Editar",
                                 style: GoogleFonts.nunito(
