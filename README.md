@@ -60,7 +60,7 @@
 
 <h3>Para baixar e instalar basta:</h3>
 
-- Clicar no link =>  <a href = "https://www.mediafire.com/file/6co0jcq9uhar3rr/To_do_List.apk/file">Aplicativo</a>
+- Clicar no link =>  <a href = "https://www.mediafire.com/file/dd4eozxg5od03w7/ToDoList.apk/file">Aplicativo</a>
 - Ativar a opção de fontes desconhecidas no seu aparelho ao instalar, pois como não é um aplicativo da Google Play Store, será necessário. Porém pode ficar tranquilo que o app é livre de vírus e propagandas.
 
 ### Download of Git
