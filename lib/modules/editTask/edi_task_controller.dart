@@ -2,19 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:to_do_list/models/taks_model.dart';
-import 'package:to_do_list/modules/Home/home_controller.dart';
 import 'package:to_do_list/repor/database_repositoty/database_repository.dart';
 
 import '../../shared/utils/date_formatt.dart';
 
 class EdiTaskController extends GetxController {
-  final HomeController _homeController;
   final DataRepository _dataRepository;
-  EdiTaskController(
-      {required HomeController homeController,
-      required DataRepository datarepository})
-      : _dataRepository = datarepository,
-        _homeController = homeController;
+  EdiTaskController({required DataRepository datarepository})
+      : _dataRepository = datarepository;
 
   final titleController = TextEditingController(text: '');
   final timeController = TextEditingController(text: '');
@@ -56,12 +51,13 @@ class EdiTaskController extends GetxController {
             TaskModel(
               title: titleController.text,
               datatime: converteMonthToSeconds(),
-              time: converteHourToSeconds(),
+              time: DateFormatt()
+                  .converteHourToSeconds(timeString: newtimeController.text),
               description: descriptionController.text,
               value: task.value,
             ),
             id);
-        _homeController.getTasks();
+
         Get.back();
       }
     } catch (e) {
@@ -69,42 +65,10 @@ class EdiTaskController extends GetxController {
     }
   }
 
-  void UpdateValueTask(TaskModel taskModel) {
-    try {
-      final id = taskModel.id;
-      if (id != null) {
-        _dataRepository.updateValue(id, taskModel.value);
-      }
-      _homeController.filtrar();
-    } catch (e) {
-      Exception("erro na hora de muda o valor");
-    }
-  }
-
   TimeOfDay convertHourFromDb() {
     final date =
         DateTime.fromMillisecondsSinceEpoch(int.parse(timeController.text));
     return TimeOfDay(hour: date.hour, minute: date.minute);
-  }
-
-  int converteHourToSeconds() {
-    final timeString = newtimeController.text;
-    if (timeString != "") {
-      List<String> timeSplit = timeString.split(':');
-      var clock = int.tryParse(timeSplit[0]);
-      var minute = int.tryParse(timeSplit[1]);
-      var dateWithoutTime = DateTime(date.year, date.month, date.day);
-      if (clock != null && minute != null) {
-        clock = clock * 60 * 60 * 1000;
-        minute = minute * 60 * 1000;
-        var clockTotalinSeconds =
-            (clock + minute + dateWithoutTime.millisecondsSinceEpoch);
-
-        return clockTotalinSeconds;
-      }
-    }
-
-    return hour.millisecondsSinceEpoch;
   }
 
   int converteMonthToSeconds() {

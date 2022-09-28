@@ -6,7 +6,6 @@ class EditTaskBindings extends Bindings {
   void dependencies() {
     Get.put(EdiTaskController(
       datarepository: Get.find(),
-      homeController: Get.find(),
     ));
   }
 }

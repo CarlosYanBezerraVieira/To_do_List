@@ -73,12 +73,13 @@ class BottomSheetWidget {
                     child: Obx(() => Row(
                           children: [
                             IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 Get.back();
-                                Get.toNamed(
+                                await Get.toNamed(
                                   '/edit',
                                   arguments: model,
                                 );
+                                controller.getTasks();
                               },
                               icon: AnimatedSwitcher(
                                 duration: Duration(milliseconds: 300),
