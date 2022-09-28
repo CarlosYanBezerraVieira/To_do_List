@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:to_do_list/models/taks_model.dart';
 import 'package:to_do_list/modules/Home/home_controller.dart';
+import 'package:to_do_list/shared/values/date_formatt.dart';
 import '../../repor/database_repositoty/database_repository.dart';
 
 class CreateTaskController extends GetxController {
@@ -75,7 +77,8 @@ class CreateTaskController extends GetxController {
   }
 
   initDates() {
-    timeController.text = TimeOfDay.now().toString();
+    timeController.text = DateFormatt().getHour();
+
     datatimeController.text = DateTime.now().toString();
   }
 }
