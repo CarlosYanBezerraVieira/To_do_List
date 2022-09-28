@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:to_do_list/Shared/values/date_formatt.dart';
 import 'package:to_do_list/models/taks_model.dart';
+
+import '../../../../../../shared/utils/date_formatt.dart';
 
 class ItemTask extends StatelessWidget {
   const ItemTask(

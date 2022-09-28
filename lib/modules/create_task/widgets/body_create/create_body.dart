@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:to_do_list/Shared/values/icons_svg.dart';
 import 'package:to_do_list/modules/create_task/create_task_controller.dart';
-import 'package:to_do_list/Shared/widget/item_form.dart';
-import '../../../../Shared/widget/date_picker_widget.dart';
+import '../../../../shared/utils/icons_svg.dart';
+import '../../../../shared/widgets/date_picker_widget.dart';
+import '../../../../shared/widgets/item_form.dart';
 import '../../create_task_controller.dart';
 
 class BodyCreaTask extends GetView<CreateTaskController> {
