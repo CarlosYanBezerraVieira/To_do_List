@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:to_do_list/modules/Home/home_controller.dart';
 
-class FloatActionButtonWidget extends StatelessWidget {
+class FloatActionButtonWidget extends GetView<HomeController> {
   const FloatActionButtonWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: () {
-        Get.toNamed("/home/create");
+      onPressed: () async {
+        await Get.toNamed("/home/create");
+        controller.getTasks();
       },
       child: Ink(
         width: 60,

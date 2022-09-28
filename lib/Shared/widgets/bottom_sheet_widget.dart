@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:to_do_list/modules/Home/home_controller.dart';
 
 import '../../models/taks_model.dart';
-import '../values/date_formatt.dart';
-import '../values/icons_svg.dart';
+import '../utils/date_formatt.dart';
+import '../utils/icons_svg.dart';
 import 'item_form.dart';
 
 class BottomSheetWidget {

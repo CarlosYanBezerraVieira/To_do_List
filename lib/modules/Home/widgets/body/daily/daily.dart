@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:to_do_list/modules/Home/widgets/body/daily/widget/item_daily.dart';
-import '../../../../../Shared/widget/bottom_sheet_widget.dart';
 import '../../../../../models/taks_model.dart';
+import '../../../../../shared/widgets/bottom_sheet_widget.dart';
 import '../../../home_controller.dart';
 
 class Daily extends StatelessWidget {
