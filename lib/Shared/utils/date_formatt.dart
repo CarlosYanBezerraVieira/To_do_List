@@ -50,4 +50,34 @@ class DateFormatt {
     String date = DateFormat(DateFormat.HOUR24_MINUTE, "pt_Br").format(clock);
     return date;
   }
+
+  int converteHourToSeconds({required String timeString}) {
+    DateTime date = DateTime.now();
+    if (timeString != "") {
+      List<String> timeSplit = timeString.split(':');
+      var clock = int.tryParse(timeSplit[0]);
+      var minute = int.tryParse(timeSplit[1]);
+      var dateWithoutTime = DateTime(date.year, date.month, date.day);
+      if (clock != null && minute != null) {
+        clock = clock * 60 * 60 * 1000;
+        minute = minute * 60 * 1000;
+        var clockTotalinSeconds =
+            (clock + minute + dateWithoutTime.millisecondsSinceEpoch);
+
+        return clockTotalinSeconds;
+      }
+    }
+
+    return date.millisecondsSinceEpoch;
+  }
+
+  int converteMonthToSeconds({required String dateString}) {
+    DateTime date = DateTime.now();
+    if (dateString != '') {
+      return DateTime.parse(dateString).millisecondsSinceEpoch;
+    }
+    ;
+
+    return date.millisecondsSinceEpoch;
+  }
 }

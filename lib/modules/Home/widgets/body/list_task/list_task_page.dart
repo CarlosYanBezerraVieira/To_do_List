@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:to_do_list/Shared/widget/bottom_sheet_widget.dart';
 import 'package:to_do_list/models/taks_model.dart';
 import 'package:to_do_list/modules/Home/home_controller.dart';
+import '../../../../../shared/widgets/bottom_sheet_widget.dart';
 import 'widget/item_task.dart';
 
 class ListTaskPage extends StatelessWidget {
