@@ -6,7 +6,6 @@ class CreateTaskBindings implements Bindings {
   void dependencies() {
     Get.put(CreateTaskController(
       dataRepository: Get.find(),
-      homeController: Get.find(),
     ));
   }
 }
